@@ -41,8 +41,8 @@ function Home(){
                             </button>
                             </Link>
                         </div>
-                        <div className='col-lg-5 mt-5 mt-lg-0'>
-                            <img src={StartCoursesImg} className='img=fluit' alt='' />
+                        <div className='col-lg-5 mt-5 mt-lg-0 '>
+                            <img src={StartCoursesImg} className='img-fluit' alt='' />
                         </div>
                     </div>
                 </div>

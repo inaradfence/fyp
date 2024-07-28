@@ -7,15 +7,19 @@ h1, h2, h3, p, a{
 header h1{
   font-size: 4rem;
 }
-.navbar ,nav-link{
+.navbar .nav-link{
   font-size: 15px;
   color: #ffffff;
+  margin: 15px;
 }
 .navbar .navbar-nav .nav-link:hover{
-  color: #dc3545;
+  color:#dc3545;
 }
 nav .navbar-toggler:focus{
   box-shadow: none;
+}
+.height-75{
+  height: 75vh;
 }
 .footer-social-icons li:hover svg{
   fill: #212529;
@@ -30,9 +34,9 @@ nav .navbar-toggler:focus{
     border-radius: 0.375rem;
   }
 }
-.navbar .nav-link{
+/* .navbar .nav-link{
   color: #212529;
-}
+} */
 @media only screen and ( max-width: 768px){
   header h1{
     font-size: 3rem;

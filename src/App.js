@@ -8,6 +8,7 @@ import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import Contact from './pages/Contact/Contact';
 import Courses from './pages/Courses/Courses';
+import Login from './pages/Login/Login';
 
 function App() {
   return (
@@ -31,12 +32,13 @@ function App() {
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='basic-navbar-nav' className='bg-light' />
-        <Navbar.Collapse id='basic-navbar-nav '>
-        <Nav className='me-auto justify-content-end w-100'></Nav>
-        <Nav.Link href='/' className='text-uppercase '>Home</Nav.Link>
+        <Navbar.Collapse id='basic-navbar-nav m-5'>
+        <Nav className='me-auto justify-content-end w-100'>
+        <Nav.Link href='/' className='text-uppercase'>Home</Nav.Link>
         <Nav.Link href='/about' className='text-uppercase'>About</Nav.Link>
         <Nav.Link href='/courses' className='text-uppercase'>Our Courses</Nav.Link>
         <Nav.Link href='/contact' className='text-uppercase'>Get in touch</Nav.Link>
+        <Nav.Link href='/login' className='text-uppercase'>Login</Nav.Link></Nav>
 </Navbar.Collapse>
       </Container>
     </Navbar>
@@ -46,7 +48,7 @@ function App() {
       <Route path='/about' element={<About />} />
       <Route path='/courses' element={<Courses />} />
       <Route path='/contact' element={<Contact />} />
-
+      <Route path='/login' element={<Login />} />
     </Routes>
 
    <footer>

@@ -1,18 +1,18 @@
-.faq-section p, .acoordition{
+.faq-section p, .acoordion{
     width: 75%;
 }
-.acoordition .acoordition-button:focus, .acoordition .acoordition-button:not(.collapsed){
+.acoordion .acoordion-button:focus, .acoordion .acoordion-button:not(.collapsed){
     box-shadow: none;
 }
-.accordition .acoordition-button:not(.collapsed){
+.accordion .acoordion-button:not(.collapsed){
     background-color: #dc3545;
     color: #ffffff ;
 }
-.accordition .acoordition-button:not(.collapsed)::after{
+.accordion .acoordion-button:not(.collapsed)::after{
     filter: invert();
 }
 @media only screen and ( max-width: 992px){
-    .faq-section p, .acoordition{
+    .faq-section p, .acoordion{
         width: 100%;
     }  
   }

@@ -32,7 +32,7 @@ function App() {
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='basic-navbar-nav' className='bg-light' />
-        <Navbar.Collapse id='basic-navbar-nav m-5'>
+        <Navbar.Collapse id='basic-navbar-nav'>
         <Nav className='me-auto justify-content-end w-100'>
         <Nav.Link href='/' className='text-uppercase'>Home</Nav.Link>
         <Nav.Link href='/about' className='text-uppercase'>About</Nav.Link>
@@ -139,7 +139,7 @@ function App() {
         </div>    
      </div>
     </div>
-   </footer>
+      </footer>
     
     
     </div>

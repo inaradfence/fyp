@@ -1,7 +1,7 @@
 import React from 'react';
 import './Contact.css';
 import Form from 'react-bootstrap/Form';
-import Col from 'react-bootstr/Col';
+import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 
@@ -19,10 +19,54 @@ function Contact(){
             </div>
             </header> 
             {/* header section end */}
-            {/*  */}
-            
+            {/*  creating form*/}
+            <div className='container my-5 justify-content-center d-flex'>
+                <Form id='contact-form'>
+                    <Row className='mb-3'>
+                        <Col sm={12} md={6} className='mb-3 mb-md-0'>
+                        <Form.Label>First Name:</Form.Label>
+                        <Form.Control placeholder='First Name'/>
+                        </Col>
+                        <Col sm={12} md={6} className='mb-3 mb-md-0'>
+                        <Form.Label>Last Name:</Form.Label>
+                        <Form.Control placeholder='Last Name'/>
+                        </Col>
+                    </Row>
 
-            </div> {/*main div end}
+                    <Form.Group className='mb-3'>
+                    <Form.Label>Email:</Form.Label>
+                    <Form.Control type='email'placeholder='Enter Email'/>
+                    <Form.Text className='text-muted'>
+                        Your Credentials will be save
+                    </Form.Text>
+                    </Form.Group>
+
+                    <Form.Group className='mb-3'>
+                    <Form.Label>Address:</Form.Label>
+                    <Form.Control placeholder='Address'/>
+                    </Form.Group>
+
+                    <Row className='mb-3'>
+                        <Col sm={12} md={6} className='mb-3 mb-md-0'>
+                        <Form.Label>Designation:</Form.Label>
+                        <Form.Select defaultValue="Student">
+                            <option >Teacher</option>
+                            <option >Student</option>
+                            <option >Alumni</option>
+                        </Form.Select>
+                        </Col>
+                    </Row>
+                    <Form.Group className='mb-3'>
+                    <Form.Label>Your Message:</Form.Label>
+                    <Form.Control as="textarea" rows={3} />
+                    </Form.Group>
+                    <Button variant="danger btn-lg" type="submit">Submit </Button>
+                </Form>
+            </div>
+
+
+            </div>
+            
         )
 
 }

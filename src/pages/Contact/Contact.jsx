@@ -56,6 +56,12 @@ function Contact(){
                         </Form.Select>
                         </Col>
                     </Row>
+
+                    <Form.Group className='mb-3'>
+                    <Form.Label>Institute Name:</Form.Label>
+                    <Form.Control placeholder='Institute Name'/>
+                    </Form.Group>
+
                     <Form.Group className='mb-3'>
                     <Form.Label>Your Message:</Form.Label>
                     <Form.Control as="textarea" rows={3} />

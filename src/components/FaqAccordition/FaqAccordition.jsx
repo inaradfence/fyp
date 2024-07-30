@@ -6,8 +6,8 @@ function FaqAccordition(){
         <div>
             <div className="faq-section">
                 <div className="container d-flex flex-column align-items-center">
-                    <h2 className='text-center text-capitalze mb-5'> Discussion Foram</h2>
-                <p className='text-center mb-5'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet praesentium sed assumenda reprehenderit ipsam eligendi, delectus saepe, voluptatum atque repudiandae mollitia porro iusto totam excepturi eius molestias tempora veniam nobis.</p>
+                    <h2 className='text-center text-capitalze mb-5'> Discussion Forum</h2>
+                <p className='text-center mb-5'>Welcome to our discussion forum! Feel free to ask questions, share your thoughts, and engage in conversations on various topics. This is your space to connect, collaborate, and explore ideas together.</p>
                < Accordion defaultActiveKey="" flush>
       <Accordion.Item eventKey="0">
         <Accordion.Header>First Question ?</Accordion.Header>

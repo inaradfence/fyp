@@ -5,10 +5,12 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Home from './pages/Home/Home';
-import About from './pages/About/About';
+// import About from './pages/About/About';
 import Contact from './pages/Contact/Contact';
 import Courses from './pages/Courses/Courses';
 import Login from './pages/Login/Login';
+import AffiliatedColleges from './pages/AffiliatedColleges/AffiliatedColleges';
+
 
 function App() {
   return (
@@ -22,12 +24,8 @@ function App() {
           <path d="M4.04 7.43a4 4 0 0 1 7.92 0 .5.5 0 1 1-.99.14 3 3 0 0 0-5.94 0 .5.5 0 1 1-.99-.14M4 9.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm1 .5v3h6v-3h-1v.5a.5.5 0 0 1-1 0V10z"/>
          <path d="M6 2.341V2a2 2 0 1 1 4 0v.341c2.33.824 4 3.047 4 5.659v5.5a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 2 13.5V8a6 6 0 0 1 4-5.659M7 2v.083a6 6 0 0 1 2 0V2a1 1 0 0 0-2 0m1 1a5 5 0 0 0-5 5v5.5A1.5 1.5 0 0 0 4.5 15h7a1.5 1.5 0 0 0 1.5-1.5V8a5 5 0 0 0-5-5"/>
          </svg>
-          <span className='mx-2 text-light lh-1 fw-semibold'>
-          Punjab University
-          <br />
-          Students Interaction Portal
-          <br />
-          (PU-SIP)  
+          <span className='mx-2 text-light'>
+           PU-SIP
           </span>        
           </Link>
         </Navbar.Brand>
@@ -35,7 +33,8 @@ function App() {
         <Navbar.Collapse id='basic-navbar-nav'>
         <Nav className='me-auto justify-content-end w-100'>
         <Nav.Link href='/' className='text-uppercase'>Home</Nav.Link>
-        <Nav.Link href='/about' className='text-uppercase'>About</Nav.Link>
+        {/* <Nav.Link href='/about' className='text-uppercase'>About</Nav.Link> */}
+        <Nav.Link href='/affiliatedcolleges' className='text-uppercase'>AffaliatedColleges</Nav.Link>
         <Nav.Link href='/courses' className='text-uppercase'>Our Courses</Nav.Link>
         <Nav.Link href='/contact' className='text-uppercase'>Get in touch</Nav.Link>
         <Nav.Link href='/login' className='text-uppercase'>Login</Nav.Link></Nav>
@@ -45,7 +44,8 @@ function App() {
     
     <Routes>
       <Route path='/' element={<Home />} />
-      <Route path='/about' element={<About />} />
+      {/* <Route path='/about' element={<About />} /> */}
+      <Route path='/affiliatedcolleges' element={<AffiliatedColleges />} />
       <Route path='/courses' element={<Courses />} />
       <Route path='/contact' element={<Contact />} />
       <Route path='/login' element={<Login />} />
@@ -105,8 +105,11 @@ function App() {
                   <Link to="/courses" className='text-decoration-none text-danger'>
                   <li className='text-uppercase fw-semibold'>Our Courses</li>                  
                   </Link>
-                  <Link to="/about" className='text-decoration-none text-danger'>
+                  {/* <Link to="/about" className='text-decoration-none text-danger'>
                   <li className='text-uppercase fw-semibold'>About</li>                  
+                  </Link> */}
+                  <Link to="/affiliatedcolleges" className='text-decoration-none text-danger'>
+                  <li className='text-uppercase fw-semibold'>Affalliated Colleges</li>                  
                   </Link>
                   <Link to="/contact" className='text-decoration-none text-danger'>
                   <li className='text-uppercase fw-semibold'>Get in touch</li>                  
@@ -116,7 +119,7 @@ function App() {
 
               <div>
                 <div className='col-12 col-md-6 col-lg-7'>
-                  <ul className='list-unstyled mb-0'>
+                  <ul className='list-unstyled mb-0 text-light'>
                     <li>
                       <p>Main Address - 47 street Name, Lahore Pakistan</p>
                     </li>
@@ -134,7 +137,7 @@ function App() {
         </div>
         <div className='bg-body-tertiary'>
           <div className='container'>
-            <p className='p-3 m-0 text-center'>copied by @inara simab</p>
+            <p className='p-3 m-0 text-center'>copied by @ Code Cedits</p>
           </div>
         </div>    
      </div>

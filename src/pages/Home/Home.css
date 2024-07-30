@@ -1,5 +1,5 @@
 .home-page header{
-    background-image: linear-gradient(rgba(5,10,35,0.75),rgba(5,10,35,0.75)), url(../../utils/images/home-page-header.jpg);
+    background-image: linear-gradient(rgba(5,10,35,0.75), rgba(5,10,35,0.75)),url('../../utils/images/home-page-header1.jpg');
 }
 header{
     background-size: cover;
@@ -9,4 +9,7 @@ img{
     height: 400px;
     width: 550px;
 
+}
+p{
+    padding-top: 15px;
 }

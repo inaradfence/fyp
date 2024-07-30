@@ -5,17 +5,6 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 
-// const LoginForm = () => {
-//   return (
-//     <div className="wrapper">
-//       <Form>
-//         <div className="input-box">
-//           inpu
-//         </div>
-//       </Form>
-//     </div>
-//   )
-// }
 
 function Login(){
     return(
@@ -65,6 +54,11 @@ function Login(){
                         </Form.Select>
                         </Col>
                     </Row>
+
+                    <Form.Group className='mb-3'>
+                    <Form.Label>Institute Name:</Form.Label>
+                    <Form.Control placeholder='Institute Name'/>
+                    </Form.Group>
                    
                     <Button variant="danger btn-lg" type="submit">SignUp/Login </Button>
                 </Form>

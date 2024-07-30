@@ -1,14 +1,13 @@
 import React from 'react';
 import './Courses.css';
 import  { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import ArtCourseImg from '../../utils/images/art-course.jpg';
 import BusinessCourseImg from '../../utils/images/business-course.jpg';
 import ComputerScienceCourseImg from '../../utils/images/computer-science-course.jpg';
 import HealthcareCourseImg from '../../utils/images/healthcare-course.jpg';
-import LawCourseImg from '../../utils/images/law-course.jpg';
 import EducationCourseImg from '../../utils/images/education-course.jpg';
 import SportCourseImg from '../../utils/images/sport-course.jpg';
-import MusicCourseImg from '../../utils/images/music-course.jpg';
 import FaqAccordition from '../../components/FaqAccordition/FaqAccordition';
 
 const courses = [
@@ -47,17 +46,6 @@ const courses = [
     title: 'Sport Course',
     description: ' lorem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium iusto vitae eum totam, a quod tenetur deleniti quas distinctio, sequi natus nisi consectetur dolore similique accusamus illo voluptatem architecto nam! Lorem ipsum dolor sit, amet consectetur adipisicing elit. '
 },
-{id: 7,
-    img: [LawCourseImg],
-    title: 'Law Course',
-    description: ' lorem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium iusto vitae eum totam, a quod tenetur deleniti quas distinctio, sequi natus nisi consectetur dolore similique accusamus illo voluptatem architecto nam! Lorem ipsum dolor sit, amet consectetur adipisicing elit. '
-},
-
-{id: 8,
-    img: [MusicCourseImg],
-    title: 'Music Course',
-    description: ' lorem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium iusto vitae eum totam, a quod tenetur deleniti quas distinctio, sequi natus nisi consectetur dolore similique accusamus illo voluptatem architecto nam! Lorem ipsum dolor sit, amet consectetur adipisicing elit. '
-},
 ];
 
     
@@ -68,9 +56,13 @@ function Courses(){
             <header className='height-75'>
                 <div className="container h-100 d-flex flex-column align-items-center justify-content-center text-light">
                     <h1 className='text-center fw-semibold'>Our Courses</h1>
-                    <p className='text-center w-75 mb-5'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium iusto vitae eum totam, a quod tenetur deleniti quas distinctio, sequi natus nisi consectetur dolore similique accusamus illo voluptatem architecto nam! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora laborum explicabo, deserunt, quaerat fuga nam, natus quam eum iure odit doloremque repudiandae officiis. Voluptatum maxime modi, facilis reprehenderit at fugit!</p>
+                    <p className='text-center w-75 mb-5'>Here, you can easily access comprehensive information about all the academic programs offered at Punjab University. Whether you're looking to explore new subjects, track your current courses, or find detailed course outlines, this portal is your gateway to academic excellence. Simply click the link below to be redirected to the official Punjab University Courses page, where you'll find up-to-date details on course offerings, registration procedures, and much more. Dive into your academic journey and make the most of your time at Punjab University!</p>
 
+                    <Link to="https://pu.edu.pk/page/show/course_outline.html">
+                    <button type='button' className='list btn btn-danger btn-lg mx-0 mx-sm-2  '>List of PU Courses</button>
+                    </Link> 
                 </div>
+                
             </header>
             <div className="container py-5">
                 <div className="row g-4">

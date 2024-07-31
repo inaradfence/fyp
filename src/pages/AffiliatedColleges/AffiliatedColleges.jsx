@@ -7,7 +7,7 @@ function AffaliatedColleges(){
     return(
         <div className='affiliatedcolleges-page'>
             {/* header sectioon start */}
-            <header className="height height-75">
+            <header className=" height-75">
             <div className="container h-100 d-flex flex-column align-items-center justify-content-center text-light">
             <h1 className='text-center fw-semibold'>Affiliated Colleges</h1>
                     <p className='text-center pt-3 w-75 mb-5'>Explore the Affiliated Colleges section of the Punjab University Students Interaction Portal to easily access detailed information about the colleges affiliated with Punjab University. This page provides a direct link to the official Punjab University website, where you can find comprehensive profiles of each affiliated college, including their academic programs, faculty, campus facilities, and admission procedures. Whether you're a current student, prospective student, or just seeking more information, this resource is designed to offer valuable insights and updates about our diverse academic community. Click below to visit the official Punjab University site and learn more about the opportunities available at our affiliated institutions.</p>

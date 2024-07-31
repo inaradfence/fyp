@@ -1,0 +1,14 @@
+.project-page header{
+    background-image: linear-gradient(rgba(5,10,35,0.75),rgba(5,10,35,0.75)),url(../../utils/images/project-bg.jpg);
+}
+.project{
+    padding-top: 10px;
+    
+}
+header{
+    background-size: cover;
+    background-position: center;
+}
+.height{
+    height: 400px;
+}

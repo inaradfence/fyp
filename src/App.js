@@ -10,6 +10,8 @@ import Contact from './pages/Contact/Contact';
 import Courses from './pages/Courses/Courses';
 import Login from './pages/Login/Login';
 import AffiliatedColleges from './pages/AffiliatedColleges/AffiliatedColleges';
+import Project from './pages/Project/Project';
+import Resources from './pages/Resources/Resources';
 
 
 function App() {
@@ -34,11 +36,14 @@ function App() {
         <Nav className='me-auto justify-content-end w-100'>
         <Nav.Link href='/' className='text-uppercase'>Home</Nav.Link>
         {/* <Nav.Link href='/about' className='text-uppercase'>About</Nav.Link> */}
-        <Nav.Link href='/affiliatedcolleges' className='text-uppercase'>AffaliatedColleges</Nav.Link>
+        <Nav.Link href='/affiliatedcolleges' className='text-uppercase'>Affiliated Colleges</Nav.Link>
         <Nav.Link href='/courses' className='text-uppercase'>Our Courses</Nav.Link>
         <Nav.Link href='/contact' className='text-uppercase'>Get in touch</Nav.Link>
-        <Nav.Link href='/login' className='text-uppercase'>Login</Nav.Link></Nav>
-</Navbar.Collapse>
+        <Nav.Link href='/project' className='text-uppercase'>Project</Nav.Link>
+        <Nav.Link href='/resources' className='text-uppercase'>Resources</Nav.Link>   
+         <Nav.Link href='/login' className='text-uppercase'>Login</Nav.Link>
+        </Nav>
+        </Navbar.Collapse>
       </Container>
     </Navbar>
     
@@ -48,7 +53,10 @@ function App() {
       <Route path='/affiliatedcolleges' element={<AffiliatedColleges />} />
       <Route path='/courses' element={<Courses />} />
       <Route path='/contact' element={<Contact />} />
+      <Route path='/project' element={<Project />} />
+      <Route path='/resources' element={<Resources />} />
       <Route path='/login' element={<Login />} />
+
     </Routes>
 
    <footer>
@@ -113,6 +121,12 @@ function App() {
                   </Link>
                   <Link to="/contact" className='text-decoration-none text-danger'>
                   <li className='text-uppercase fw-semibold'>Get in touch</li>                  
+                  </Link>
+                  <Link to="project" className='text-decoration-none text-danger'>
+                  <li className='text-uppercase fw-semibold'>Projects</li>                  
+                  </Link>
+                  <Link to="/resources" className='text-decoration-none text-danger'>
+                  <li className='text-uppercase fw-semibold'>Resources</li>                  
                   </Link>
                  </ul>                
               </div>

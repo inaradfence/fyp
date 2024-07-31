@@ -13,7 +13,7 @@ function Login(){
   {/* header sectioon start */}
   <header className='h-100 min-vh-100  text-light'>
   <div className="container h-100 d-flex text-light">
-    <div className='heading'>  <h1 className='fw-semibold'>Sign Up / Login </h1>
+    <div className='heading'>  <h1 className='text-centerfw-semibold'>Sign Up / Login </h1>
 </div>          
   </div>
 <div className='signup-form'>

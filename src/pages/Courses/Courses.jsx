@@ -8,7 +8,7 @@ import ComputerScienceCourseImg from '../../utils/images/computer-science-course
 import HealthcareCourseImg from '../../utils/images/healthcare-course.jpg';
 import EducationCourseImg from '../../utils/images/education-course.jpg';
 import SportCourseImg from '../../utils/images/sport-course.jpg';
-import FaqAccordition from '../../components/FaqAccordition/FaqAccordition';
+// import FaqAccordition from '../../components/FaqAccordition/FaqAccordition';
 
 const courses = [
     {id: 1,
@@ -84,10 +84,10 @@ function Courses(){
                     ))}
                 </div>
             </div>
-            <div className="bg-dark text-light py-5">
+            {/* <div className="bg-dark text-light py-5">
                 <FaqAccordition />
                     
-            </div>
+            </div> */}
         </div>
     )
 

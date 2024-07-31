@@ -3,7 +3,7 @@ import './Home.css';
 import {Link} from 'react-router-dom';
 import ChooseSection from '../../components/ChooseSection/ChooseSection';
 import StartCoursesImg from '../../utils/images/start-courses-img.jpg';
-import FaqAccordition from '../../components/FaqAccordition/FaqAccordition';
+// import FaqAccordition from '../../components/FaqAccordition/FaqAccordition';
 // import { Card } from 'react-bootstrap';
 
 
@@ -47,9 +47,9 @@ function Home(){
                 </div>
 
             </div>
-            <div className="py-5">
+            {/* <div className="py-5">
                 <FaqAccordition/>
-            </div>
+            </div> */}
 
         </div>
     )

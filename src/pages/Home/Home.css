@@ -5,6 +5,10 @@ header{
     background-size: cover;
     background-position: center;
 }
+img{
+    height: 420px;
+    width: 570px;
+}
 
 p{
     padding-top: 15px;

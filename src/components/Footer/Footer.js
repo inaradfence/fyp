@@ -9,6 +9,9 @@ function Footer() {
                     <div className='col-sm-12 col-md-4 text-center text-md-start'>
                         <h3>LINKS</h3>
                         <ul className='footer-navigation list-unstyled my-4'>
+                        <Link to="/login" className='text-decoration-none text-danger'>
+                                <li className='text-uppercase fw-semibold my-2'>Login</li>
+                            </Link>
                             <Link to="/" className='text-decoration-none text-danger'>
                                 <li className='text-uppercase fw-semibold my-2 link-text'>Home</li>
                             </Link>
@@ -21,6 +24,12 @@ function Footer() {
                             </Link>
                             <Link to="/contact" className='text-decoration-none text-danger'>
                                 <li className='text-uppercase fw-semibold my-2'>Get in touch</li>
+                            </Link>
+                            <Link to="/contact" className='text-decoration-none text-danger'>
+                                <li className='text-uppercase fw-semibold my-2'>Project</li>
+                            </Link>
+                            <Link to="/resources" className='text-decoration-none text-danger'>
+                                <li className='text-uppercase fw-semibold my-2'>Resources</li>
                             </Link>
                         </ul>
                     </div>

@@ -2,7 +2,7 @@
     background-image: linear-gradient(rgba(5,10,35,0.75),rgba(5,10,35,0.75)),url(../../utils/images/project-bg.jpg);
 }
 .project{
-    padding-top: 10px;
+    padding-top: 100px;
     
 }
 header{
@@ -12,21 +12,17 @@ header{
 .height{
     height: 400px;
 }
-.pdf{
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    padding-top: 30px;
-    flex-direction: column;
-    margin-bottom: 30px;
- 
-}
-.forms{
-    padding: 20px;
-    border: 2px solid black ;
-    width: 25%;
-    text-align: center;
-}
-.form-control{
-    border-color: black !important;
-}
+
+/* Styling for like/dislike buttons */
+.btn-like-dislike {
+    width: 48px;
+    height: 48px;
+    font-size: 24px; /* Adjust font size of the icon inside the button */
+  }
+  
+  /* Styling for like/dislike text */
+  .like-dislike-text {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  

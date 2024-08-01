@@ -6,40 +6,6 @@ import StartCoursesImg from '../../utils/images/start-courses-img.jpg';
 // import FaqAccordition from '../../components/FaqAccordition/FaqAccordition';
 // import { Card } from 'react-bootstrap';
 
-// Login a user
-const loginUser = async (req, res) => {
-    const { email, password } = req.body;
-  
-    if (!email || !password) {
-      return res.status(400).json({ message: 'Email and password are required' });
-    }
-  
-    try {
-      // Find the user by email
-      const user = await User.findOne({ email });
-      if (!user) {
-        return res.status(401).json({ message: 'Invalid email or password' });
-      }
-  
-      // Check if the password matches
-      const isMatch = await bcrypt.compare(password, user.password);
-      if (!isMatch) {
-        return res.status(401).json({ message: 'Invalid email or password' });
-      }
-  
-      // Create a JWT token
-      const token = jwt.sign(
-        { id: user._id, email: user.email },
-        'your_jwt_secret', // Use a secret key from environment variables
-        { expiresIn: '1h' } // Token expiration
-      );
-  
-      // Respond with token and user data
-      res.json({ token, user: { id: user._id, email: user.email } });
-    } catch (err) {
-      res.status(500).json({ message: err.message });
-    }
-  };
 function Home(){
     return(
         <div className='home-page'>

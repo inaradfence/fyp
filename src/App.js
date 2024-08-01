@@ -12,6 +12,7 @@ import AffiliatedColleges from './pages/AffiliatedColleges/AffiliatedColleges';
 import Footer from './components/Footer/Footer';
 import Project from './pages/Project/Project';
 import Resources from './pages/Resources/Resources';
+import SignUp from './pages/SignUp/Signup';
 
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
               <Nav.Link href='/contact' className='text-uppercase'>Get in touch</Nav.Link>
               <Nav.Link href='/project' className='text-uppercase'>Project</Nav.Link>
               <Nav.Link href='/resources' className='text-uppercase'>Resources</Nav.Link>
-              <Nav.Link href='/login' className='text-uppercase'>Signup</Nav.Link>
+              <Nav.Link href='/signup' className='text-uppercase'>Signup</Nav.Link>
               </Nav>
           </Navbar.Collapse>
         </Container>
@@ -54,6 +55,7 @@ function App() {
         <Route path='/courses' element={<Courses />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<SignUp />} />
         <Route path='/project' element={<Project />} />
         <Route path='/resources' element={<Resources />} />
 

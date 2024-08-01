@@ -41,7 +41,7 @@ function App() {
               <Nav.Link href='/contact' className='text-uppercase'>Get in touch</Nav.Link>
               <Nav.Link href='/project' className='text-uppercase'>Project</Nav.Link>
               <Nav.Link href='/resources' className='text-uppercase'>Resources</Nav.Link>
-              <Nav.Link href='/login' className='text-uppercase'>Login</Nav.Link>
+              <Nav.Link href='/login' className='text-uppercase'>Signup</Nav.Link>
               </Nav>
           </Navbar.Collapse>
         </Container>

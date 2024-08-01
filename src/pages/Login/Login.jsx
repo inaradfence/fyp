@@ -23,7 +23,7 @@ function Login() {
 
     try {
       // Send a POST request with form data
-      const response = await axios.post('http://localhost:3000/api/user/login', {
+      const response = await axios.post('http://localhost:3000/api/createUser', {
         email,
         password
       });

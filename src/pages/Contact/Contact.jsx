@@ -32,7 +32,7 @@ function Contact() {
 
         try {
             // Send a POST request with form data
-            const response = await axios.post('http://localhost:3000/api/contact/contact-us', {
+            const response = await axios.post('http://localhost:3000/api/contact-us', {
                 firstName: formData.firstName,
                 lastName: formData.lastName,
                 email: formData.email,

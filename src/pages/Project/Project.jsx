@@ -68,7 +68,6 @@ function Project() {
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent the default form submission
     try {
-      // Send a GET request to fetch projects
       const response = await axios.get('http://localhost:3000/api/project', {
         params: {
           // Add any query parameters here (e.g., project ID, filters, etc.)

@@ -8,14 +8,16 @@ import axios from 'axios'; // Import axios
 
 function Contact() {
     const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
+        firstname: '',
+        lastname: '',
         email: '',
         address: '',
-        designation: 'Student',
-        instituteName: '',
+        designation: '',
+        institutename: '',
         message: '',
     });
+    
+
     const [isSubmitting, setIsSubmitting] = useState(false); // Optional: To show loading state
 
     const handleChange = (e) => {
@@ -31,28 +33,33 @@ function Contact() {
         setIsSubmitting(true); // Optional: Set loading state
 
         try {
+            console.log("in try function......");
             // Send a POST request with form data
-            const response = await axios.post('http://localhost:3000/api/contact-us', {
-                firstName: formData.firstName,
-                lastName: formData.lastName,
+            const response = await axios.post('http://localhost:5000/api/contact', {
+                firstname: formData.firstname,
+                lastname: formData.lastname,
                 email: formData.email,
                 address: formData.address,
                 designation: formData.designation,
-                instituteName: formData.instituteName,
-                message: formData.message,
-            });
+                institutename: formData.institutename,
+                message: formData.message
+            }, {
+                headers: {
+                  'Content-Type': 'application/json',
+            }});
+      
 
             // Handle response if needed
             console.log('Response:', response.data);
             alert('Thank you for contacting us!');
             setFormData({
-                firstName: '',
-                lastName: '',
+                firstname: '',
+                lastname: '',
                 email: '',
                 address: '',
-                designation: 'Student',
-                instituteName: '',
-                message: '',
+                designation: '',
+                institutename: '',
+                message: ''
             });
         } catch (error) {
             // Handle error if needed
@@ -83,8 +90,8 @@ function Contact() {
                         <Col sm={12} md={6} className='mb-3 mb-md-0'>
                             <Form.Label>First Name:</Form.Label>
                             <Form.Control 
-                                name='firstName'
-                                value={formData.firstName}
+                                name='firstname'
+                                value={formData.firstname}
                                 onChange={handleChange}
                                 placeholder='First Name'
                             />
@@ -92,8 +99,8 @@ function Contact() {
                         <Col sm={12} md={6} className='mb-3 mb-md-0'>
                             <Form.Label>Last Name:</Form.Label>
                             <Form.Control 
-                                name='lastName'
-                                value={formData.lastName}
+                                name='lastname'
+                                value={formData.lastname}
                                 onChange={handleChange}
                                 placeholder='Last Name'
                             />
@@ -132,6 +139,7 @@ function Contact() {
                                 value={formData.designation}
                                 onChange={handleChange}
                             >
+                                <option >Select</option>
                                 <option value="Teacher">Teacher</option>
                                 <option value="Student">Student</option>
                                 <option value="Alumni">Alumni</option>
@@ -142,8 +150,8 @@ function Contact() {
                     <Form.Group className='mb-3'>
                         <Form.Label>Institute Name:</Form.Label>
                         <Form.Control 
-                            name='instituteName'
-                            value={formData.instituteName}
+                            name='institutename'
+                            value={formData.institutename}
                             onChange={handleChange}
                             placeholder='Institute Name'
                         />

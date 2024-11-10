@@ -23,7 +23,7 @@ function SignUp() {
 
     try {
       // Send a POST request with form data
-      const response = await axios.post('http://localhost:3000/api/createUser', {
+      const response = await axios.post('http://localhost:5000/api/register', {
         firstname,
         lastname,
         email,
@@ -31,7 +31,10 @@ function SignUp() {
         address,
         designation,
         institute
-      });
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+    }});
 
       // Handle success
       setSuccess('Signup successful!');
@@ -39,7 +42,7 @@ function SignUp() {
     } catch (error) {
       // Handle error
       setError('Signup failed. Please check your credentials.');
-      console.error("Signup error ", error);
+      // console.error("Signup error ", error);
     }
   };
 
@@ -55,8 +58,8 @@ function SignUp() {
         <div className='signup-form'>
           <div className='container justify-content-center'>
             <Form id='login-form' onSubmit={handleSubmit}>
-              <Row className='mb-3'>
-                <Col sm={12} md={6} className='mb-3 mb-md-0'>
+              <Row className='mb-1'>
+                <Col sm={12} md={6} className='mb-1 mb-md-0'>
                   <Form.Label>First Name:</Form.Label>
                   <Form.Control
                     placeholder='First Name'
@@ -64,7 +67,7 @@ function SignUp() {
                     onChange={(e) => setFirstname(e.target.value)}
                   />
                 </Col>
-                <Col sm={12} md={6} className='mb-3 mb-md-0'>
+                <Col sm={12} md={6} className='mb-1 mb-md-0'>
                   <Form.Label>Last Name:</Form.Label>
                   <Form.Control
                     placeholder='Last Name'
@@ -74,7 +77,7 @@ function SignUp() {
                 </Col>
               </Row>
 
-              <Form.Group className='mb-3'>
+              <Form.Group className='mb-1'>
                 <Form.Label>Email:</Form.Label>
                 <Form.Control
                   type='email'
@@ -83,7 +86,7 @@ function SignUp() {
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Group className="mb-1" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
                 <Form.Control
                   type="password"
@@ -93,7 +96,7 @@ function SignUp() {
                 />
               </Form.Group>
 
-              <Form.Group className='mb-3'>
+              <Form.Group className='mb-1'>
                 <Form.Label>Address:</Form.Label>
                 <Form.Control
                   placeholder='Address'
@@ -102,8 +105,8 @@ function SignUp() {
                 />
               </Form.Group>
 
-              <Row className='mb-3'>
-                <Col sm={12} md={6} className='mb-3 mb-md-0'>
+              <Row className='mb-1'>
+                <Col sm={12} md={6} className='mb-1 mb-md-0'>
                   <Form.Label>Designation:</Form.Label>
                   <Form.Select
                     defaultValue={designation}
@@ -116,7 +119,7 @@ function SignUp() {
                 </Col>
               </Row>
 
-              <Form.Group className='mb-3'>
+              <Form.Group className='mb-1'>
                 <Form.Label>Institute Name:</Form.Label>
                 <Form.Control
                   placeholder='Institute Name'
@@ -125,11 +128,11 @@ function SignUp() {
                 />
               </Form.Group>
 <p>Already have an account <a href='/login'>Login</a></p>
-              <Button variant="danger btn-lg" type="submit">Sign Up/Login</Button>
+              <Button variant="purple btn-lg text-light" type="submit">Sign Up</Button>
 
               {/* Display success or error message */}
-              {error && <div className='alert alert-danger mt-3'>{error}</div>}
-              {success && <div className='alert alert-success mt-3'>{success}</div>}
+              {error && <div className='alert alert-danger mt-1'>{error}</div>}
+              {success && <div className='alert alert-success mt-1'>{success}</div>}
             </Form>
           </div>
         </div>

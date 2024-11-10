@@ -10,6 +10,9 @@ function Home(){
     return(
         <div className='home-page'>
             <header className='h-100 min-vh-100 d-flex align-items-center text-light'>
+            <div className='header-background'>
+                    <div className='overlay'></div>
+                </div>
                 <div className='container d-flex flex-column align-items-center'>
                     <h2 className='pt-5'>Welcome To</h2>                    
                     <h1 className='text-center fw-semibold'>Punjab University Students Interaction Portal (PU-SIP)</h1>

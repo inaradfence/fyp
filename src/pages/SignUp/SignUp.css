@@ -4,10 +4,10 @@
 }
 .heading{
     padding-left: 320px;
-    padding-top: 150px;
+    padding-top: 100px;
 }
 .signup-form{
-    padding-top: 100px;
+    padding-top: 50px;
     padding-left: 420px;
 
 }
@@ -30,3 +30,26 @@
     width: 100%
 }
 }
+
+/* Header background */
+.login-page header {
+    background-image: linear-gradient(rgba(5, 10, 35, 0.75), rgba(5, 10, 35, 0.75)), url(../../utils/images/login-page-img.jpg);
+    background-size: cover; /* Ensure background image covers the area */
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+
+
+
+  /* Align label text to the left */
+.signup-form .form-label {
+    text-align: left !important; /* Ensure the label text is left-aligned */
+    margin-bottom: 5px; /* Add space below the label */
+    display: block !important; /* Ensure the label takes up the full width */
+  }
+  
+  /* Align input text to the left */
+  .signup-form .form-control {
+    text-align: left !important; /* Ensure the input text is left-aligned */
+  }

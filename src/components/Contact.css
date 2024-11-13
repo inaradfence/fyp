@@ -1,10 +1,10 @@
 .contact-page header{
-    /* background-image: linear-gradient(rgba(5,10,35,0.75), rgba(5,10,35,0.75)),url('../../utils/images/contact-page-header.jpg');
+    background-image: linear-gradient(rgba(5,10,35,0.75), rgba(5,10,35,0.75)),url('../../utils/images/contact-page-header.jpg');
     background-size: cover;
-    background-position: center; */
-    /* height: 100vh; Full height */
-    /* padding-top: 75px; Adjust this based on the height of your navbar */
-    /* position: relative; Set position if you have absolute elements */
+    background-position: center;
+    height: 100vh; /* Full height */
+    padding-top: 75px; /* Adjust this based on the height of your navbar */
+    position: relative; /* Set position if you have absolute elements */
 }
 
 

@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 // import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
   // Define state variables for form fields
@@ -12,6 +13,8 @@ function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  
+  const navigate=useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent the default form submission
@@ -25,9 +28,11 @@ function Login() {
 
       // Handle success
       setSuccess('Login successful!');
+      navigate("/")
       console.log(response.data); // You might want to save the token and redirect the user here
     } catch (error) {
       // Handle error
+      alert("error");
       setError('Login failed. Please check your credentials.');
       console.error("Login error ", error);
     }

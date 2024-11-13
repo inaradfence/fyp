@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function SignUp() {
   // Define state variables for form fields
@@ -17,6 +18,8 @@ function SignUp() {
   const [institute, setInstitute] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+
+  const navigate=useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent the default form submission
@@ -38,6 +41,7 @@ function SignUp() {
 
       // Handle success
       setSuccess('Signup successful!');
+      navigate("/");
       console.log(response.data); // You might want to save the token and redirect the user here
     } catch (error) {
       // Handle error

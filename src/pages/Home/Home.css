@@ -3,7 +3,9 @@
 }
 header {
     position: relative; /* Make header relative for positioning overlay */
-    background-image: url('../../utils/images/1st.jpg');
+    background-image: linear-gradient(rgba(5,10,35,0.75), rgba(5,10,35,0.75)),url('../../utils/images/1st.jpg');
+    
+    /* background-image: url('../../utils/images/1st.jpg'); */
     background-size: cover;
     background-position: center;
     color: white;
@@ -26,7 +28,7 @@ header {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(5,10,35,0.7);/* Adjust the last value for desired transparency */
+    /* background-color: rgba(5,10,35,0.7);Adjust the last value for desired transparency */
     z-index: 1; /* Above the background */
 }
 

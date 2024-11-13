@@ -1,0 +1,18 @@
+
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow:     0 12px 40px rgba(236, 81, 158, 0.7);     }
+
+
+    .card .card-body {
+        background-color: #F8C8DC; ;
+        border-radius: 10px; /* Optional: adds rounded corners inside the card */
+      
+    }
+    

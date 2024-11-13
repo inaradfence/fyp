@@ -1,144 +1,162 @@
-.project-page header{
-    background-image: linear-gradient(rgba(5,10,35,0.75),rgba(5,10,35,0.75)),url(../../utils/images/project-bg.jpg);
-}
-.project{
-    padding-top: 100px;
-    
-}
-header{
-    background-size: cover;
-    background-position: center;
-}
-.height{
-    height: 400px;
-}
-
-/* Styling for like/dislike buttons */
-/* Basic styling for buttons */
-.btn-like-dislike {
-    border: none;
-    background: none;
-    cursor: pointer;
-    outline: none;
-  }
-  
-  .btn-like-dislike.liked svg {
-    fill: #007bff;
-  }
-  
-  .btn-like-dislike.disliked svg {
-    fill: #dc3545;
-  }
-  
-  .like-dislike-count {
-    font-size: 1.2rem;
-    margin: 0 10px;
-  }
-  
-  /* General card styling */
-  .card {
-    border: 1px solid #ddd;
-    border-radius: 0.25rem;
-    box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,.075);
-  }
-  
-  .card-body {
-    padding: 1.25rem;
-  }
-  /* Project.css */
-.project-page .btn-like-dislike {
-    border: none;
-    background: none;
-  }
-  
-  .project-page .btn-like-dislike.liked svg {
-    fill: #007bff;
-  }
-  
-  .project-page .btn-like-dislike.disliked svg {
-    fill: #dc3545;
-  }
-  
-  .project-page .like-dislike-count {
-    font-size: 1.2rem;
-    margin: 0 10px;
-  }
-  
-  .card .d-flex {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-/* CSS for vertical button layout in Idea Sharing */
-.vertical-buttons {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.btn-like-dislike {
-  margin: 5px 0;
-}
-
-.like-dislike-count {
-  display: block;
-  margin: 5px 0;
-}
-
-/* CSS for horizontal button layout in Project Sharing */
-.d-flex {
-  display: flex;
-  align-items: center;
-}
-
-.d-flex .btn-like-dislike {
-  margin-right: 10px;
-}
-
-.like-dislike-count {
-  margin-left: 5px;
-}
+/* Global Styles */
 .project-page {
-    font-family: Arial, sans-serif;
-  }
-  
-  header {
-    background-color: #007bff; /* Theme color */
-  }
-  
-  h1, h2 {
-    color: #fff;
-  }
-  
-  .share-section {
-    background-color: #f8f9fa; /* Light background for sections */
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 24px 20px rgba(62, 4, 110, 0.635);
-  }
-  
-  .card {
-    border: 1px solid #d2b0c6;
-    border-radius: 8px;
-    box-shadow: 0 24px 20px rgba(62, 4, 110, 0.635);
+  font-family: Arial, sans-serif;
+}
 
+/* Header section styling */
+.project-page header {
+  background-image: linear-gradient(rgba(5, 10, 35, 0.75), rgba(5, 10, 35, 0.75)), url(../../utils/images/project-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Full height */
+  padding-top: 75px; /* Adjust this based on the height of your navbar */
+  position: relative; /* Set position if you have absolute elements */
+}
+
+.project-page header {
+  background-color: #007bff; /* Theme color */
+}
+
+
+/* Share Section Styling */
+.project-page .share-section {
+  background-color: #f8f9fa; /* Light background for sections */
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid #50052d;
+  box-shadow: 0 24px 20px rgba(62, 4, 110, 0.635);
+  
+}
+
+.project-page .close-icon {
+  position: relative;
+  top: 45px;
+  left: 670px; /* Position the icon to the right */
+  font-size: 35px;
+  color: #333;
+  cursor: pointer;
+}
+
+.project-page .error.message {
+  color: red;
+  margin-bottom: 20px;
+}
+
+.project-page button[type="button"] {
+  background-color: #660742;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.project-page button[type="button"]:hover{
+  background-color: rgba(103, 5, 88);
+}
+/* Card Styling */
+.project-page .card {
+  border: 1px solid #50052d;
+  border-radius: 8px;
+  box-shadow: 0 24px 20px rgba(62, 4, 110, 0.635);
+  width: 400px; /* Fixed card size */
+  margin: 30px;
+  padding: 20px;
+  bottom: -35px;
+  background-color: #ffffff; /* Background color for cards */
+}
+
+.project-page .card-body {
+  padding: 1.25rem;
+  background-color: #deb6cd; /* Background color for the body of the card */
+}
+
+.project-page .card-title, .project-page .card-text {
+  color: #333;
+}
+
+.project-page .card .d-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.project-page .card p {
+  color: #333;
+  font-size: 14px;
+}
+
+.project-page .card a {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.project-page .card a:hover {
+  background-color: #0056b3;
+}
+
+/* Layout for Project Cards (Horizontal layout) */
+.project-page .project-cards {
+  display: flex;
+  flex-direction: row; /* Display cards horizontally */
+  justify-content: flex-start; /* Align cards to the left */
+  flex-wrap: wrap; /* Wrap cards to the next line if there's no space */
+  gap: 20px; /* Add space between cards */
+  padding: 20px;
+}
+
+/* Ensuring responsiveness for mobile devices */
+@media (max-width: 768px) {
+  .project-page .card {
+    max-width: 90%; /* Adjust the card width on small screens */
+    margin: 10px 0;
   }
-  
-  .btn-like-dislike {
-    border-radius: 4px;
-    padding: 5px 10px;
+
+  .project-page header h1 {
+    font-size: 2.5rem;
   }
-  
-  .like-dislike-count {
-    display: inline-block;
-    width: 30px;
-    text-align: center;
-    margin: 0 5px;
+
+  .project-page header p {
+    font-size: 1rem;
   }
-  
-  .card-body {
-    background-color: #deb6cd; /* Background color for cards */
+}
+
+@media (max-width: 576px) {
+  .project-page .card {
+    max-width: 100%; /* Card takes full width on very small screens */
   }
-    
+}
+.add-project-button {
+  position: absolute !important; /* Keep it in a fixed position on the page */
+  bottom: -70px;    /* Adjust vertical position */
+  left: 680px;     /* Adjust horizontal position to the right side */
+  background-color: #4a112f; /* Optional: Customize button color */
+  color: white;
+  font-size: 24px;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
+.add-project-button:hover {
+  background-color: #68234e; /* Optional: Change color on hover */
+}
+/* Popup Overlay Styling */
+.popup-overlay {
+  position: absolute !important;
+  bottom: -480px;
+  left: 28%; 
+  width: 70%;
   
-  
+
+
+
+
+}
+popup-content{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}

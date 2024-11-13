@@ -1,130 +1,342 @@
+/* General app styling */
 .App {
   text-align: center;
 }
-h1, h2, h3, p, a{
+
+h1, h2, h3, p, a {
   font-family: 'Montserrat', sans-serif;
 }
-header h1{
+
+header h1 {
   font-size: 4rem;
 }
-.navbar .nav-link{
+
+.navbar .nav-link {
   font-size: 15px;
   color: #ffffff;
   margin: 5px;
 }
-.navbar .navbar-nav .nav-link:hover{
-  color:#dc3545;
+
+.navbar .navbar-nav .nav-link:hover {
+  color: #dc3545;
 }
-nav .navbar-toggler:focus{
+
+nav .navbar-toggler:focus {
   box-shadow: none;
 }
-.height-75{
+
+.height-75 {
   height: 75vh;
 }
-.footer-social-icons li:hover svg{
+
+.footer-social-icons li:hover svg {
   fill: white;
 }
+
 .footer-navigation li:hover {
   color: white;
 }
 
-@media only screen and ( max-width: 992px){
+@media only screen and (max-width: 992px) {
   #basic-navbar-nav {
-    background-color:#A64D79;
-    padding: 10px, 20px;
+    background-color: #A64D79;
+    padding: 10px 20px;
     padding-left: 20px;
     border-radius: 0.375rem;
-    
   }
-.navbar .nav-link{
-    color:  #D95F59;
+
+  .navbar .nav-link {
+    color: #212529;
     padding: 3px;
     margin: 0px;
   }
+
+  .navbar-purple .navbar-toggler {
+    border-color: #ffffff;
+    margin-top: -50px;
+  }
+/* 
+  .navbar-logo {
+    width: 80px;
+    height: auto;
+    margin-right: 10px;
+    margin-left: -70px;
+    margin-top: -80px;
+    display: block;
+    object-fit: contain;
+  } */
+
+  .abc{
+      margin-top: -50px;
+  }
+
+
 }
 
-@media only screen and ( max-width: 768px){
-  header h1{
+@media only screen and (max-width: 768px) {
+  header h1 {
     font-size: 3rem;
   }
-}
-@media only screen and ( max-width: 576px){
-  header h1{
-    font-size: 2rem;
+  .navbar-purple .navbar-toggler {
+    border-color: #ffffff;
+    margin-top: -85px;
   }
 }
- span{
+
+@media only screen and (max-width: 576px) {
+  header h1 {
+    font-size: 2.5rem;
+  }
+}
+
+span {
   font-family: sans-serif;
   font-size: 30px;
   font-weight: 400px;
   font-style: italic;
-  }
-  footer {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  footer::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('./utils/images/footer.jpg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.85; /* Adjust opacity as needed */
-    z-index: -1; /* Ensure the pseudo-element is behind the content */
-  }
-  
-  /* for Transition styles */
+}
+
+footer {
+  position: relative;
+  overflow: hidden;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('./utils/images/footer.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.85;
+  z-index: -1;
+}
+
 .fade-enter {
   opacity: 0;
 }
+
 .fade-enter-active {
   opacity: 1;
   transition: opacity 300ms ease-in;
 }
+
 .fade-exit {
   opacity: 1;
 }
+
 .fade-exit-active {
   opacity: 0;
   transition: opacity 300ms ease-in;
 }
+
 /* Navbar styling */
 .navbar-purple {
-  background-color: #660742 !important; /* Sets the navbar background to purple */
+  background-color: #660742 !important;
   z-index: 10;
-  box-shadow:  0 2px 50px rgba(62, 4, 110, 0.635); /* Adds a subtle shadow for better visibility */
+  box-shadow: 0 2px 50px rgba(62, 4, 110, 0.635);
+  height: 80px;
+  display: flex;
+  align-items: center;
 }
 
 .navbar-purple .navbar-brand,
 .navbar-purple .nav-link {
-  color: #ffffff !important; /* Sets text color to white for contrast */
+  color: #ffffff !important;
 }
 
 .navbar-purple .navbar-toggler {
-  border-color: #ffffff; /* White border for toggler button */
+  border-color: #ffffff;
 }
 
-/* Change color of navbar links on hover */
-.navbar-purple .nav-link {
-  transition: color 0.3s ease; /* Smooth color transition */
-}
-
-/* Hover color for links */
 .navbar-purple .nav-link:hover {
-  color: #859F3D !important; /* Change link color to black on hover */
-  text-decoration: underline; /* Underline the text on hover */
+  color: rgb(203, 30, 30) !important;
+  text-decoration: underline;
 }
 
-
-/* Make navbar links bold */
 .navbar-purple .nav-link {
-  font-weight: bold; /* Make text bold */
+  font-weight: bold;
 }
 
-/* ......................................................................................................... */
+/* Logo styling */
+.navbar-logo {
+  width: 80px;
+  height: auto;
+  margin-right: 10px;
+  margin-left: -40px;
+  display: block;
+  object-fit: contain;
+}
 
+@media (max-width: 768px) {
+  .navbar-logo {
+    width: 30px;
+    margin-left: -20px;
+    top: 50%;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-logo {
+    width: 25px;
+    margin-left: -20px; 
+  }
+}
+
+/* Profile icon styling */
+.profile-pic-navbar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  cursor: pointer;
+  position: absolute; /* Allows free positioning */
+  right: -70px;
+}
+
+.profile-pic-navbar:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
+/* Profile Modal styling */
+.modal-content {
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.modal-header {
+  background-color: #660742;
+  color: #fff;
+  border-bottom: none;
+}
+
+.modal-footer {
+  background-color: #f8f9fa;
+}
+
+/* Save Changes and Sign Out Buttons */
+.modal-footer .btn-primary,
+.modal-footer .btn-danger {  /* Both buttons (Save Changes & Sign Out) */
+  background-color: rgb(103, 5, 88) !important;  /* Set the desired color */
+  border-color: rgb(103, 5, 88) !important;      /* Match border color */
+  color: white;                                 /* Text color */
+}
+
+.modal-footer .btn-primary:hover,
+.modal-footer .btn-danger:hover {  /* Both buttons on hover */
+  background-color: rgb(85, 4, 70) !important;   /* Darker shade for hover */
+  border-color: rgb(85, 4, 70) !important;
+}
+
+.modal-body input {
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.modal-body input:focus {
+  border-color: #660742;
+  box-shadow: 0 0 5px rgba(102, 7, 66, 0.5);
+}
+
+.modal-dialog {
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+.modal-header .close {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+/* Profile Picture Container */
+.profile-pic-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centers the profile picture horizontally */
+  flex-direction: column;
+  text-align: center; 
+}
+
+.profile-pic-modal {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  margin-left: -50px;
+}
+
+.edit-icon {
+  position: absolute;
+  bottom: 10px;
+  background-color: rgba(50, 28, 6, 0.6);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+.edit-icon:hover {
+  opacity: 1;
+  background-color: #4b0b2f;
+}
+@media only screen and (min-width: 1200px) {
+  /* Example: Adjust navbar font size */
+  .navbar .nav-link {
+    font-size: 14px;
+  }
+
+  /* Example: Adjust header font size */
+  header h1 {
+    font-size: 3.5rem;
+  }
+
+  /* Adjust profile picture size */
+  .profile-pic-navbar {
+    width: 40px;
+    height: 40px;
+    right: 0px; /* Adjust this value so the icon stays visible */
+  }
+
+  /* Adjust navbar logo size */
+  .navbar-logo {
+    width: 70px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  /* Example: Adjust navbar font size */
+  .navbar .nav-link {
+    font-size: 14px;
+  }
+
+  /* Example: Adjust header font size */
+  header h1 {
+    font-size: 3.5rem;
+  }
+
+  /* Adjust profile picture size */
+  .profile-pic-navbar {
+    width: 40px;
+    height: 40px;
+    right: 0px; /* Adjust this value so the icon stays visible */
+  }
+
+  /* Adjust navbar logo size */
+  .navbar-logo {
+    width: 70px;
+  }
+}

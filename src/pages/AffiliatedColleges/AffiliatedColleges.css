@@ -1,6 +1,22 @@
-.affiliatedcolleges-page header{
-    background-image: linear-gradient(rgba(5,10,35,0.75), rgba(5,10,35,0.75)),url('../../utils/images/affiliatedcollege.jpg');
+
+.affiliatedcolleges-page header {
+    background-image: linear-gradient(rgba(5, 10, 35, 0.75), rgba(5, 10, 35, 0.75)), url('../../utils/images/affiliatedcollege.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Full height */
+    padding-top: 75px; /* Adjust this based on the height of your navbar */
+    position: relative; /* Set position if you have absolute elements */
 }
+.btn-purple {
+    background-color: #660742 !important; /* Adjust the shade as needed */
+    color: white !important; /* Change text color for better contrast */
+    border: none !important; /* Remove border if needed */
+}
+
+.btn-purple:hover {
+    background-color: rgb(103, 5, 88) !important; 
+}
+
 p{
     padding: 15px;
 }

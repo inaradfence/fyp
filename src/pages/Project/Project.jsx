@@ -39,6 +39,9 @@ function Project() {
   const [projectDescription, setProjectDescription] = useState('');
   const [projectUrl, setProjectUrl] = useState('');
   const [projectPdf, setProjectPdf] = useState(null);
+
+  // const [allAnnouncement, setAnnouncement] = useState([]);///////////////////////////////////////
+
   const [currentUser, setCurrentUser] = useState('');
   const [error, setError] = useState(''); 
   const handleShareProject = () => {

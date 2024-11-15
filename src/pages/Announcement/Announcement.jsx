@@ -1,9 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Container, Row, Col, Nav, Modal, Button } from 'react-bootstrap'; // Import Modal components
 import './Announcement.css';
+import axios from 'axios';
+import  { useState, useEffect } from 'react';
 
 
 const Announcement = () => {
+
+  const [allAnnouncement, setAnnouncement] = useState([]);
+
+  useEffect(()=>{
+    const fetchData = async ()=>{
+      try {
+        const response = await axios.get("http://localhost:5000/api/all-Announcement");
+    //    + console.log("All response ", response);
+        setAnnouncement(response?.data);
+      } catch (error) {
+        console.error("Courses fetch error ", error);
+      }
+    }
+    fetchData();
+  },[])
+
+
   const [showModal, setShowModal] = useState(false); // State to control the modal visibility
   const [selectedAnnouncement, setSelectedAnnouncement] = useState(null); // Store the selected announcement
 
@@ -55,8 +74,8 @@ const Announcement = () => {
       <Container>
         <Row className="mt-4">
           <Col>
-            {announcements.map((announcement) => (
-              <div key={announcement.id} className="announcement-item py-3 border-bottom">
+            {allAnnouncement.map((announcement, index) => (
+              <div key={index} className="announcement-item py-3 border-bottom">
                 <p className="mb-1 text-muted">{announcement.date}</p>
                 <h5>{announcement.title}</h5>
                 <p>{announcement.description.slice(0, 100)}...</p>

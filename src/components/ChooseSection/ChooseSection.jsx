@@ -69,3 +69,49 @@ function ChooseSection() {
 
 export default ChooseSection;
 
+
+
+// import React, { useState, useEffect } from 'react';
+// import './ChooseSection.css';
+// import { Card, Col, Row } from 'react-bootstrap';
+// import axios from 'axios';
+
+// function ChooseSection() {
+//   const [allCards, setCards] = useState([]);
+
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       try {
+//         const response = await axios.get("http://localhost:5000//api/all-Cards");
+//         setCards(response?.data);
+//       } catch (error) {
+//         console.error("Courses fetch error", error);
+//       }
+//     }
+//     fetchData();
+//   }, []);
+
+//   return (
+//     <div className='container'>
+//       <h2 className='text-center mb-5'>Why choose PU-SIP?</h2>
+//       <Row className='g-4'>
+//         {allCards.map((card, index) => (
+//           <Col key={index} lg={4}>
+//             <Card className='d-flex align-items-center border-0 h-100 p-4 mb-4' style={{ backgroundColor: '#f8f9fa', borderRadius: '20px', boxShadow: '0 8px 30px rgba(255, 105, 180, 0.5)' }}>
+             
+//               <Card.Body>
+//                 <Card.Title className='text-center text-capitalize mb-3'>{card.title}</Card.Title>
+//                 <Card.Text className='text-center'>{card.description}</Card.Text>
+//               </Card.Body>
+//             </Card>
+//           </Col>
+//         ))}
+        
+       
+        
+//       </Row>
+//     </div>
+//   );
+// }
+
+// export default ChooseSection;

@@ -53,16 +53,7 @@ function Courses(){
 
     const [allCourses, setCourses] = useState([]);
 
-    // useEffect(()=>{
-    //     try {
-    //       const response = axios.get("http://localhost:5000/api/all-courses");
-    //       setCourses(response.)
-    //     } catch (error) {
-    //       console.error("Courses fetch error ", error)
-    //     }
-    //   },[]);
-
-    useEffect(()=>{
+     useEffect(()=>{
         const fetchData = async ()=>{
           try {
             const response = await axios.get("http://localhost:5000/api/all-courses");

@@ -32,13 +32,13 @@ function Contact() {
 
         try {
             // Send a POST request with form data
-            const response = await axios.post('http://localhost:3000/api/contact-us', {
-                firstName: formData.firstName,
-                lastName: formData.lastName,
+            const response = await axios.post('http://localhost:5000/api/contact', {
+                firstname: formData.firstname,
+                lastname: formData.lastname,
                 email: formData.email,
                 address: formData.address,
                 designation: formData.designation,
-                instituteName: formData.instituteName,
+                institutename: formData.institutename,
                 message: formData.message,
             });
 
@@ -46,12 +46,12 @@ function Contact() {
             console.log('Response:', response.data);
             alert('Thank you for contacting us!');
             setFormData({
-                firstName: '',
-                lastName: '',
+                firstname: '',
+                lastname: '',
                 email: '',
                 address: '',
                 designation: 'Student',
-                instituteName: '',
+                institutename: '',
                 message: '',
             });
         } catch (error) {
@@ -87,8 +87,8 @@ function Contact() {
                         <Col sm={12} md={6} className='mb-3 mb-md-0'>
                             <Form.Label>First Name:</Form.Label>
                             <Form.Control 
-                                name='firstName'
-                                value={formData.firstName}
+                                name='firstname'
+                                value={formData.firstname}
                                 onChange={handleChange}
                                 placeholder='First Name'
                             />
@@ -96,8 +96,8 @@ function Contact() {
                         <Col sm={12} md={6} className='mb-3 mb-md-0'>
                             <Form.Label>Last Name:</Form.Label>
                             <Form.Control 
-                                name='lastName'
-                                value={formData.lastName}
+                                name='lastname'
+                                value={formData.lastname}
                                 onChange={handleChange}
                                 placeholder='Last Name'
                             />
@@ -146,8 +146,8 @@ function Contact() {
                     <Form.Group className='mb-3'>
                         <Form.Label>Institute Name:</Form.Label>
                         <Form.Control 
-                            name='instituteName'
-                            value={formData.instituteName}
+                            name='institutename'
+                            value={formData.institutename}
                             onChange={handleChange}
                             placeholder='Institute Name'
                         />

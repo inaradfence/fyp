@@ -3,10 +3,13 @@ import './Home.css';
 import {Link} from 'react-router-dom';
 import ChooseSection from '../../components/ChooseSection/ChooseSection';
 import StartCoursesImg from '../../utils/images/start-courses-img.jpg';
+import axios from 'axios';
+import  { useState, useEffect } from 'react';
 // import FaqAccordition from '../../components/FaqAccordition/FaqAccordition';
 // import { Card } from 'react-bootstrap';
 
 function Home(){
+  
     return(
         <div className='home-page'>
             <header className='h-100 min-vh-100 d-flex align-items-center text-light'>
@@ -35,8 +38,8 @@ function Home(){
                 <div className="container">
                     <div className='row d-flex align-items-center justify-content-around'>
                         <div className='col-lg-5'>
-                            <h2 className="text-capitalize">2024 start courses</h2>
-                            <p> As we step into 2024, PU is excited to announce the launch of our new course offerings designed to meet the evolving needs of our community. This year, we're expanding our curriculum with innovative programs and cutting-edge content, aimed at equipping you with the skills and knowledge necessary for personal and professional growth. Whether you're looking to advance your career, explore new interests, or deepen your expertise, PU 2024 courses are here to support and inspire your journey. Join us as we embark on a new year of learning and discovery!</p>
+                            <h2 className="text-capitalize">2025 start courses</h2>
+                            <p> As we step into 2025, PU is excited to announce the launch of our new course offerings designed to meet the evolving needs of our community. This year, we're expanding our curriculum with innovative programs and cutting-edge content, aimed at equipping you with the skills and knowledge necessary for personal and professional growth. Whether you're looking to advance your career, explore new interests, or deepen your expertise, PU 2025 courses are here to support and inspire your journey. Join us as we embark on a new year of learning and discovery!</p>
                             <Link to="/courses">
                             <button type='button' className='btn btn-outline-light btn-lg mx-0 mx-sm-2 my-2 my-sm-0'>Learn More
                             </button>

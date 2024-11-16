@@ -1,6 +1,5 @@
 import React from 'react';
 import './Courses.css';
-import  { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import ArtCourseImg from '../../utils/images/art-course.jpg';
 import BusinessCourseImg from '../../utils/images/business-course.jpg';
@@ -10,7 +9,8 @@ import EducationCourseImg from '../../utils/images/education-course.jpg';
 import SportCourseImg from '../../utils/images/sport-course.jpg';
 import axios from 'axios';
 import  { useState, useEffect } from 'react';
-// import FaqAccordition from '../../components/FaqAccordition/FaqAccordition';
+import { Card, Modal, Button } from 'react-bootstrap';
+import { IoSearch } from "react-icons/io5";
 
 const courses = [
     {id: 1,
@@ -66,6 +66,21 @@ function Courses(){
         fetchData();
       },[])
 
+      const [show, setShow] = useState(false);
+    const [selectedCourse, setSelectedCourse] = useState(null);
+    const [searchQuery, setSearchQuery] = useState(''); 
+   
+    const handleShow = (course) => {
+        setSelectedCourse(course);
+        setShow(true);
+    };
+
+    const handleClose = () => setShow(false);
+    const filteredCourses = courses.filter((course) =>
+        course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        course.description.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+
     return(
         <div className='courses-page'>
             <header className='height-75'>
@@ -79,10 +94,29 @@ function Courses(){
                 </div>
                 
             </header>
+            <div className="search-bar-container my-4">
+        <div className="input-group">
+          <input
+            type="text"
+            className="form-control search-bar"
+            placeholder="Search for courses..."
+            onChange={(e) => setSearchQuery(e.target.value)} // Update search query
+            value={searchQuery}
+          />
+          <span className="input-group-text" id="search-icon">
+            <IoSearch />
+          </span>
+        </div>
+      </div>
+
+      {filteredCourses.length === 0 && (
+        <p className="no-results-message">No courses found matching your search.</p>
+      )}
             <div className="container py-5">
                 <div className="row g-4">
                     {allCourses.map((course, index) =>(
                         <div key={index} className='col-lg-6'>
+                            <div onClick={() => handleShow(course)} style={{ cursor: 'pointer' }}>
                             <Card className='text-white shadow scale-hover-effect'>
                                 <Card.Img src={ArtCourseImg}/>
                                 <Card.ImgOverlay className='d-flex flex-column align-items-center justify-content-center p-md-5'>
@@ -95,16 +129,33 @@ function Courses(){
                     
                                 </Card.ImgOverlay>
                             </Card>
+
+                        </div>
                         </div>
                     ))}
                 </div>
             </div>
-            {/* <div className="bg-dark text-light py-5">
-                <FaqAccordition />
-                    
-            </div> */}
+           
+       {/* Modal */}
+       <Modal show={show} onHide={handleClose} centered >
+                <Modal.Header closeButton>
+                    <Modal.Title>{selectedCourse?.title}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <p>Below are some of the colleges offering this course:</p>
+                    <ul>
+                        <li>FG Post graduate college women, kashmie road rawalpindi</li>
+                        <li>College B</li>
+                        <li>College C</li>
+                        <li>College D</li>
+                    </ul>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>Close</Button>
+                </Modal.Footer>
+            </Modal>
         </div>
-    )
-
+    );
 }
+
 export default Courses;

@@ -22,10 +22,11 @@
 .project-page .share-section {
   background-color: #f8f9fa; /* Light background for sections */
   border-radius: 8px;
-  padding: 20px;
+  padding: 10px 20px;
   border: 1px solid #50052d;
   box-shadow: 0 24px 20px rgba(62, 4, 110, 0.635);
-  
+  width: 100%;
+
 }
 
 .project-page .close-icon {
@@ -107,56 +108,96 @@
   padding: 20px;
 }
 
-/* Ensuring responsiveness for mobile devices */
-@media (max-width: 768px) {
-  .project-page .card {
-    max-width: 90%; /* Adjust the card width on small screens */
-    margin: 10px 0;
-  }
-
-  .project-page header h1 {
-    font-size: 2.5rem;
-  }
-
-  .project-page header p {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .project-page .card {
-    max-width: 100%; /* Card takes full width on very small screens */
-  }
-}
+/* Button styling */
 .add-project-button {
-  position: absolute !important; /* Keep it in a fixed position on the page */
-  bottom: -70px;    /* Adjust vertical position */
-  left: 680px;     /* Adjust horizontal position to the right side */
-  background-color: #4a112f; /* Optional: Customize button color */
+  position: absolute !important;
+  bottom: -80px;
+  right: 20px;
+  background-color: #660742;
   color: white;
   font-size: 24px;
   border: none;
-  border-radius: 50%;
+  border-radius: 8px;
   width: 60px;
   height: 60px;
 }
 .add-project-button:hover {
-  background-color: #68234e; /* Optional: Change color on hover */
+  background-color: rgba(103, 5, 88);
 }
+
 /* Popup Overlay Styling */
 .popup-overlay {
+  /* position: relative; */
   position: absolute !important;
-  bottom: -480px;
-  left: 28%; 
+  bottom: -450px;
+  /* top: 600%; */
+  left: 48%; 
   width: 70%;
-  
-
-
-
-
 }
 popup-content{
   position: fixed;
-  top: 50%;
-  left: 50%;
+  top: 100%;
+  left: -50px;
+}
+
+@media only screen and (max-width: 1200px){
+  .project-page .card{
+    max-width: 300px;
+  }
+  .add-project-button{
+       left: 48%;
+       bottom: -150px;
+  }
+  .popup-overlay{
+        bottom: -555px;
+        left: 350px;
+  }
+}
+@media (max-width: 768px) {
+  .project-page .card{
+    max-width:100%;
+    left: 15%;
+  }
+    .add-project-button{
+     left: 350px;
+    }
+  
+}
+
+@media (max-width: 576px) {
+  .project-page .card{
+    max-width: 600%;
+    left: 4%;
+    top: 50px;
+  }
+  .add-project-button{
+  bottom: -8%;
+  left: 43%;
+  }
+}
+
+.search-bar-container {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  margin-left: 960px;
+}
+
+.search-bar {
+  width: 50%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.no-results-message {
+  color: red;
+  /* text-align: right; */
+  margin-top: 10px;
+  font-size: 1rem;
+  /* font-weight: bold; */
+  position: relative;
+   right: -950px !important;
+   top: -30px;
 }

@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios'; // Import axios
+import StartCoursesImg from '../../utils/images/contact1.jpg';
 
 function Contact() {
     const [formData, setFormData] = useState({
@@ -85,7 +86,7 @@ function Contact() {
                 <Form id='contact-form' onSubmit={handleSubmit}>
                     <Row className='mb-3'>
                         <Col sm={12} md={6} className='mb-3 mb-md-0'>
-                            <Form.Label>First Name:</Form.Label>
+                            <Form.Label>Name:</Form.Label>
                             <Form.Control 
                                 name='firstname'
                                 value={formData.firstname}
@@ -93,7 +94,7 @@ function Contact() {
                                 placeholder='First Name'
                             />
                         </Col>
-                        <Col sm={12} md={6} className='mb-3 mb-md-0'>
+                        {/* <Col sm={12} md={6} className='mb-3 mb-md-0'>
                             <Form.Label>Last Name:</Form.Label>
                             <Form.Control 
                                 name='lastname'
@@ -101,7 +102,7 @@ function Contact() {
                                 onChange={handleChange}
                                 placeholder='Last Name'
                             />
-                        </Col>
+                        </Col> */}
                     </Row>
 
                     <Form.Group className='mb-3'>
@@ -169,6 +170,9 @@ function Contact() {
                     </Button>
                 </Form>
                 </div>
+                < div className='col-lg-5 mt-5 mt-lg-0 image'>
+                            <img src={StartCoursesImg} className='img-fluit' alt='' />
+                 </div>
             </div>
         </div>
     );

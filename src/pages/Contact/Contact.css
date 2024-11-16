@@ -1,30 +1,50 @@
 .contact-page header{
-    /* background-image: linear-gradient(rgba(5,10,35,0.75), rgba(5,10,35,0.75)),url('../../utils/images/contact-page-header.jpg');
+    background-image: linear-gradient(rgba(5,10,35,0.75), rgba(5,10,35,0.75)),url('../../utils/images/contact-page-header.jpg');
     background-size: cover;
-    background-position: center; */
-    /* height: 100vh; Full height */
-    /* padding-top: 75px; Adjust this based on the height of your navbar */
-    /* position: relative; Set position if you have absolute elements */
+    background-position: center;
+    height: 100vh; /* Full height */
+    padding-top: 75px; /* Adjust this based on the height of your navbar */
+    position: relative; /* Set position if you have absolute elements */
 }
 
 
 
-/*now this is include*/ 
+/* /now this is include/  */
 .form-card {
     background-color: white; /* Card background color */
     padding: 20px;          /* Inner padding */
     border-radius: 10px;    /* Rounded corners */
     box-shadow: 0 2px 50px rgba(62, 4, 110, 0.635); /* Shadow effect */
-    width: 70%;            /* Full width for responsiveness */
+    width: 45%;   
+   margin-left: -250px;
 }
 
 #contact-form {
-    width: 50%
+    width: 50%;
+
 }
 #contact-form .form-control:focus,
 #contact-form .form-select:focus{
     border-color: #dc3545;
     box-shadow: 0 0 0 0.25rem rgba(220,53,69,0.25);
+    width: 150%;           /* Make the inputs take full width of the container */
+    padding: 10px;         /* Increase padding for larger input box */
+    /* position: relative; */
+
+} 
+#contact-form .form-control,
+#contact-form .form-select {
+    width: 170%;             
+    padding: 10px;           
+   
+   
+}
+
+
+@media only screen and (min-width:1200px) {
+    #contact-form {
+    width: 75%
+}
 }
 
 @media only screen and (max-width:992px) {
@@ -36,4 +56,12 @@
     #contact-form {
     width: 100%
 }
+}
+.image {
+    position: relative;
+    /* float: right;  */
+  /* margin-bottom: 2000px !important; */
+  margin-top: -800px !important;
+  /* margin-bottom: 1000% !important; */
+    left: 190px;
 }

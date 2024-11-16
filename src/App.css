@@ -177,12 +177,35 @@ footer::before {
     margin-left: -20px;
     top: 50%;
   }
+  .profile-pic-navbar {
+    top: 80px;
+margin-right:20px;
+  }
+  .profile-card {
+   top: 90px  !important;
+   margin-right: 68px;
+  }
+  .navbar-purple .navbar-toggler{
+    margin-top: -50px !important;
+  }
 }
+
 
 @media (max-width: 576px) {
   .navbar-logo {
     width: 25px;
     margin-left: -20px; 
+  }
+  .profile-pic-navbar {
+    top: 80px;
+margin-right:20px;
+  }
+  .profile-card {
+   top: 90px  !important;
+   margin-right: 40px;
+  }
+  .navbar-purple .navbar-toggler{
+    margin-top: -50px !important;
   }
 }
 
@@ -194,7 +217,7 @@ footer::before {
   object-fit: cover;
   border: 2px solid #fff;
   cursor: pointer;
-  position: absolute; /* Allows free positioning */
+  position: absolute; 
   right: -70px;
 }
 
@@ -205,7 +228,7 @@ footer::before {
 
 /* Profile Modal styling */
 .modal-content {
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 20px;
   background-color: #fff;
 }
@@ -248,8 +271,10 @@ footer::before {
 }
 
 .modal-dialog {
-  max-width: 600px;
-  margin: 30px auto;
+  max-width: 500px;
+  margin: auto ;
+  left: 450px;
+ 
 }
 
 .modal-header .close {
@@ -293,29 +318,7 @@ footer::before {
   opacity: 1;
   background-color: #4b0b2f;
 }
-@media only screen and (min-width: 1200px) {
-  /* Example: Adjust navbar font size */
-  .navbar .nav-link {
-    font-size: 14px;
-  }
 
-  /* Example: Adjust header font size */
-  header h1 {
-    font-size: 3.5rem;
-  }
-
-  /* Adjust profile picture size */
-  .profile-pic-navbar {
-    width: 40px;
-    height: 40px;
-    right: 0px; /* Adjust this value so the icon stays visible */
-  }
-
-  /* Adjust navbar logo size */
-  .navbar-logo {
-    width: 70px;
-  }
-}
 
 @media only screen and (max-width: 1200px) {
   /* Example: Adjust navbar font size */
@@ -339,4 +342,100 @@ footer::before {
   .navbar-logo {
     width: 70px;
   }
+}
+
+/* Profile Card Styling */
+.profile-card {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 280px;
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  z-index: 100;
+  transition: transform 0.3s ease-in-out;
+}
+
+.profile-card:hover {
+  transform: scale(1.05);  /* Slight zoom effect on hover */
+}
+
+.profile-card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-left: -5px;
+  margin-bottom: 10px;
+  display:block;
+}
+
+.profile-card-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  /* margin-right: 15px; */
+  display: block;
+  margin-left: auto; /* Centers the image horizontally */
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+.profile-card-header h5 {
+  font-size: 18px;
+  font-weight: 600;
+ margin-left:90px;
+  color: #0c0208; 
+  margin-top: 20px;
+}
+
+.profile-card-header p {
+  font-size: 14px;
+  color: #666;
+  margin-top: -18px;
+  margin-left: 25px;
+}
+
+.profile-card-header p:last-child {
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase; /* Optional: Make designation stand out */
+ margin-left: 70px;
+ margin-top: -40px;
+}
+
+.profile-card button {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 6px 12px;
+  margin-top: 800px;
+}
+
+.profile-card-button:hover {
+  background-color: #660742;
+  color: #fff;
+  border-color: #660742;
+}
+
+/* Style the 'Edit Profile' button */
+.profile-card button:first-child {
+  background-color: #660742;
+  color: #fff;
+     
+}
+
+.profile-card button:first-child:hover {
+  background-color:  rgb(103, 5, 88) !important;
+}
+
+/* Style the 'Logout' button */
+.profile-card button:last-child {
+  background-color: #660742;
+  color: #fff;
+}
+
+.profile-card button:last-child:hover {
+  background-color:  rgb(103, 5, 88) !important;
 }

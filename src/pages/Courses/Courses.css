@@ -21,3 +21,25 @@
 .courses-page .card:hover{
   cursor: pointer;
 }
+/* Modal styles */
+.modal-content {
+  position: relative;
+  max-width: 100% ; 
+height: auto;
+  left: -30px;
+}
+
+.modal-dialog {
+  position: relative;
+  max-width: 10% ; /* Set to a specific pixel width */
+  width: 10% ;
+ 
+}
+
+.modal-footer .btn-secondary {
+  background-color: #660742 !important;
+ 
+}
+.modal-footer .btn-secondary{
+  background-color: rgb(103, 5, 88) !important; 
+}

@@ -24,7 +24,7 @@ import Announcement from './pages/Announcement/Announcement';
 import SignUp from './pages/SignUp/Signup';
 import logo from './assets/images/logo.jpg';
 import profilePic from './utils/images/person6.jpg';
-
+import Askquestion from './components/discussionForm/Askquestion';
 import { addUsers } from './context/onlineSlice'; // Import action to add users (for Redux)
 
 function App() {
@@ -160,6 +160,7 @@ function App() {
             <Route path="/project" element={<Project />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/announcement" element={<Announcement />} />
+            <Route path="/ask-question" element={<Askquestion />} />
           </Routes>
         </CSSTransition>
       </TransitionGroup>

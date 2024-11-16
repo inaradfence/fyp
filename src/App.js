@@ -5,10 +5,12 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { useLocation } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { io } from 'socket.io-client'; // Import socket.io client
+import { useDispatch } from 'react-redux'; // For dispatching actions
 
 import Home from './pages/Home/Home';
 import Contact from './pages/Contact/Contact';
@@ -23,9 +25,11 @@ import SignUp from './pages/SignUp/Signup';
 import logo from './assets/images/logo.jpg';
 import profilePic from './utils/images/person6.jpg';
 
+import { addUsers } from './context/onlineSlice'; // Import action to add users (for Redux)
+
 function App() {
   const location = useLocation();
-  const navigate = useNavigate(); // Initialize navigate here
+  const navigate = useNavigate();
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [profileData, setProfileData] = useState({
     firstname: '',
@@ -36,7 +40,48 @@ function App() {
     institutename: '',
   });
 
-  // Toggle the modal
+  // Redux dispatch
+  const dispatch = useDispatch();
+
+  // Socket connection
+  const socket = io(`http://localhost:8080`, {
+    withCredentials: true,
+    secure: true,
+  });
+
+  // Effect for handling socket connection and events
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+      navigate('/login'); // Redirect if no user
+    }
+
+    socket.connect();
+    socket.auth = user;
+
+    socket.on("connect", () => {
+      console.log("socket connected");
+    });
+
+    // Listen for user connection and disconnection events
+    socket.on("user-connected", (users) => {
+      console.log("Users connected:", users);
+      dispatch(addUsers(users)); // Dispatch to Redux store
+    });
+
+    socket.on("user-disconnected", (users) => {
+      console.log("Users disconnected:", users);
+      dispatch(addUsers(users)); // Dispatch to Redux store
+    });
+
+    // Cleanup on component unmount
+    return () => {
+      socket.off("user-connected");
+      socket.off("user-disconnected");
+      socket.disconnect();
+    };
+  }, [socket, dispatch, navigate]);
+
   const handleShow = () => setShowProfileModal(true);
   const handleClose = () => setShowProfileModal(false);
 

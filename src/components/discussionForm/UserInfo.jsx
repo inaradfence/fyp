@@ -1,5 +1,5 @@
 import React from "react";
-import Comment from "../icons/Comment";
+import Comment from "./../../icons/Comment";
 import moment from "moment";
 
 const UserInfo = ({ openId, index, setOpenId, question, answer }) => {

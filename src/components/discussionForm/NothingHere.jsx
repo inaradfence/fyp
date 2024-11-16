@@ -1,5 +1,5 @@
 import React from "react";
-import NothingImage from "../assets/nothing.png";
+import NothingImage from "./../../assets/nothing.png";
 
 const NothingHere = () => {
   return (

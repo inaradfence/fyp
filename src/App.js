@@ -28,7 +28,7 @@ import Askquestion from './components/discussionForm/Askquestion';
 import { addUsers } from './context/onlineSlice'; // Import action to add users (for Redux)
 import Explore from "./pages/discussionForm/Explore"
 import Chat from "./pages/discussionForm/Chat"
-
+import Content from "./components/discussionForm/Content"
 // Socket connection
 export const socket = io(`http://localhost:8080`, {
   withCredentials: true,
@@ -171,6 +171,7 @@ function App() {
             <Route path="/ask-question" element={<Askquestion />} />
             <Route path="/explore" element={<Explore />} />
             <Route path="/chat" element={<Chat />} />
+            <Route path="/content" element={<Content />} />
           </Routes>
         </CSSTransition>
       </TransitionGroup>

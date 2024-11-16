@@ -65,7 +65,7 @@ const Explore = () => {
           <div
             key={index}
             className="col-6 col-md-3 d-flex align-items-center cursor-pointer"
-            // onClick={() => navigateToTopic(topic)}
+            onClick={() => navigateToTopic(topic)}
           >
             <div
               className="rounded-circle"

@@ -26,6 +26,7 @@ import logo from './assets/images/logo.jpg';
 import profilePic from './utils/images/person6.jpg';
 import Askquestion from './components/discussionForm/Askquestion';
 import { addUsers } from './context/onlineSlice'; // Import action to add users (for Redux)
+import Explore from "./pages/discussionForm/Explore"
 
 function App() {
   const location = useLocation();
@@ -161,6 +162,7 @@ function App() {
             <Route path="/resources" element={<Resources />} />
             <Route path="/announcement" element={<Announcement />} />
             <Route path="/ask-question" element={<Askquestion />} />
+            <Route path="/explore" element={<Explore />} />
           </Routes>
         </CSSTransition>
       </TransitionGroup>

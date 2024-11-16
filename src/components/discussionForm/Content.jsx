@@ -15,18 +15,44 @@ const Content = () => {
   const { topic } = useParams();
   const [openId, setOpenId] = React.useState([]);
   const [answer, setAnswer] = React.useState("");
+  const { isLoading, isError, data, error } = useQuery("getAllQuestions", () => {
 
-  const { isLoading, data } = useQuery("getAllQuestions", () => {
     if (topic) {
       return newRequests
         .get(`http://localhost:8080/find/${topic}`)
-        .then((res) => res.data);
+        .then((res) => {
+          return res.data;
+        })
+        .catch((err) => {
+          console.error("Error fetching topic:", err);  // Error log
+          throw err;
+        });
     } else {
       return newRequests
         .get(`http://localhost:8080/questions`)
-        .then((res) => res.data);
+        .then((res) => {
+          console.log("response is ", res);  // Debug log
+          return res.data;
+        })
+        .catch((err) => {
+          console.error("Error fetching questions:", err);  // Error log
+          throw err;
+        });
     }
+  }, {
+    onSuccess: (data) => {
+      console.log("Query Success, Data received:", data);  // Success log
+    },
+    onError: (error) => {
+      console.error("Error fetching data:", error);  // Error log
+    },
   });
+
+
+  if (isError) {
+    console.log("Error fetching data:", error);
+    return <div>Error fetching data</div>;
+  }
 
   if (isLoading) return <Loading />;
 
@@ -41,27 +67,19 @@ const Content = () => {
           return (
             <div
               key={index}
-              className="w-[96%] md:w-[80%] mx-12 flex flex-col 
-              items-end  p-3 md:p-4 rounded-md bg-purple-100
-               dark:bg-slate-400"
+              className="container-sm mx-auto mb-4 p-3 rounded bg-light"
             >
-              <div
-                className="w-full bg-white dark:bg-[#1E212A]
-              
-              p-4 md:p-5 rounded-lg shadow-md flex items-start gap-5"
-              >
-                <div className="left-section space-y-1 text-center">
+              <div className="d-flex p-4 rounded-3 shadow-sm bg-white">
+                <div className="left-section text-center">
                   <Arrowup id={question._id} />
-                  <h3 className="text-sm md:text-base">
+                  <h3 className="fs-6">
                     {question?.upvote?.length || 0}
                   </h3>
                   <Arrowdown id={question._id} />
                 </div>
-                <div className="right-section w-full">
-                  <h1 className="text-base md:text-lg dark:text-white">
-                    {question?.question}
-                  </h1>
-                  <p className="text-sm md:text-base">
+                <div className="right-section w-100 ms-3">
+                  <h1 className="fs-5">{question?.question}</h1>
+                  <p className="fs-6">
                     {question?.description}
                   </p>
                   <hr />
@@ -73,39 +91,32 @@ const Content = () => {
                   />
                 </div>
               </div>
-              {/* nested comment       */}
+
+              {/* Nested Comments */}
               {openId.find((ele) => ele === index + 1) && (
                 <>
                   {question?.replies?.map((answer, index) => {
-                    console.log("answer", answer);
                     return (
-                      <div key={answer._id} className="flex items-center gap-4">
-                        {/* fix this */}
+                      <div key={answer._id} className="d-flex align-items-start gap-3 mt-2">
                         <img
-                          className="h-4 md:h-6 w-4 md:w-6"
+                          className="h-6 w-6"
                           src="https://cdn.icon-icons.com/icons2/2596/PNG/512/nested_arrows_icon_155086.png"
                           alt=""
                         />
-                        <div
-                          className="   bg-white dark:bg-[#32353F] dark:text-white
-          max-w-xl p-5 rounded-lg shadow-md flex flex-col items-start gap-5 mt-2"
-                        >
-                          <p className="text-inherit">{answer?.reply}</p>
+                        <div className="bg-light rounded-3 shadow-sm max-w-xl p-3 ms-2">
+                          <p>{answer?.reply}</p>
                           <UserInfo answer={answer} />
                         </div>
                       </div>
                     );
                   })}
-                  {/* nested comment       */}
-                  <div
-                    className="w-full bg-white dark:bg-slate-900 flex items-center gap-4
-       px-5 py-2 rounded-lg shadow-md  mt-2"
-                  >
+
+                  {/* Comment input box */}
+                  <div className="d-flex align-items-center gap-3 mt-2 bg-light p-2 rounded-3 shadow-sm">
                     <Write />
                     <input
                       onChange={(e) => setAnswer(e.target.value)}
-                      className="w-full h-10 border-none outline-none 
-          rounded-md py-1 px-2 "
+                      className="form-control border-0 rounded ms-2"
                       type="text"
                       value={answer}
                       placeholder="Write a comment"
@@ -119,6 +130,7 @@ const Content = () => {
                 </>
               )}
             </div>
+
           );
         })}
       {data.length === 0 && <NothingHere />}

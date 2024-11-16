@@ -5,8 +5,8 @@ import moment from "moment";
 const UserInfo = ({ openId, index, setOpenId, question, answer }) => {
   const currentUser = JSON.parse(localStorage.getItem("user"));
   return (
-    <div className="w-full  flex items-cente justify-between">
-      <div className="w-[48%] md:max-w-screen-md posted-by flex items-center gap-2 md:gap-3">
+    <div className="d-flex justify-content-between w-100">
+      <div className="d-flex align-items-center gap-2">
         <img
           src={
             question?.author?.profileImage ||
@@ -14,11 +14,12 @@ const UserInfo = ({ openId, index, setOpenId, question, answer }) => {
             "https://avatars.githubusercontent.com/u/56132780?v=4"
           }
           alt="profile"
-          className="h-5 md:w-6 w-5 md:h-6 rounded-full"
+          className="rounded-circle"
+          style={{ width: '24px', height: '24px' }}
         />
-        <h2 className="text-gray-300 text-xs">
+        <h2 className="text-muted small mb-0">
           {answer ? "answered by\n" : "posted by "}{" "}
-          <span className="text-purple-800 font-bold  md:text-sm">
+          <span className="text-primary fw-bold">
             {question
               ? question?.author?.name === currentUser?.name
                 ? question?.author?.name + " (You)"
@@ -31,8 +32,8 @@ const UserInfo = ({ openId, index, setOpenId, question, answer }) => {
           </span>
         </h2>
       </div>
-      <div className="posted-on mx-auto">
-        <h2 className="text-gray-300 text-xs">
+      <div className="text-center">
+        <h2 className="text-muted small mb-0">
           {question
             ? moment(question?.createdAt).fromNow()
             : moment(answer?.createdAt).fromNow()}
@@ -40,7 +41,7 @@ const UserInfo = ({ openId, index, setOpenId, question, answer }) => {
       </div>
       {openId && (
         <div
-          className="comment flex gap-2 ml-auto cursor-pointer"
+          className="d-flex align-items-center gap-2 cursor-pointer ms-auto"
           onClick={() => {
             if (!openId.find((ele) => ele === index)) {
               console.log("hello");
@@ -52,7 +53,7 @@ const UserInfo = ({ openId, index, setOpenId, question, answer }) => {
           }}
         >
           <Comment />
-          <span className="text-gray-300 text-xs">
+          <span className="text-muted small">
             {question?.replies?.length || "No replies"}
           </span>
         </div>

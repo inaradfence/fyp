@@ -171,7 +171,7 @@ function App() {
             <Route path="/ask-question" element={<Askquestion />} />
             <Route path="/explore" element={<Explore />} />
             <Route path="/chat" element={<Chat />} />
-            <Route path="/content" element={<Content />} />
+            <Route path="/explore/:topic" element={<Content />} />
           </Routes>
         </CSSTransition>
       </TransitionGroup>

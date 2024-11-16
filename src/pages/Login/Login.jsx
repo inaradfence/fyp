@@ -28,6 +28,8 @@ function Login() {
 
       // Handle success
       setSuccess('Login successful!');
+      localStorage.setItem('token', JSON.stringify(response.data.token));
+      console.log(response.data);
       navigate("/")
       console.log(response.data); // You might want to save the token and redirect the user here
     } catch (error) {

@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Project.css'; 
 import { IoSearch } from "react-icons/io5";
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Project() {
+  const navigate = useNavigate();
   const [projects, setProjects] = useState([
     {
       title: 'Project 1',
@@ -43,6 +45,12 @@ function Project() {
   const [error, setError] = useState(''); 
   const [searchQuery, setSearchQuery] = useState('');  // State for search query
 
+  useEffect(() => {
+    const token = localStorage.getItem('token'); // Or sessionStorage.getItem('token')
+    if (!token) {
+      navigate('/login'); // Redirect to login page if token doesn't exist
+    }
+  }, [navigate]);
   // Handle sharing project
   const handleShareProject = () => {
     if (!projectTitle || !projectDescription) {

@@ -101,6 +101,8 @@ const handleEditProfile = () => { // Corrected definition here
 
 
   const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
     console.log('User signed out');
     setShowProfileCard(false);
     navigate('./');

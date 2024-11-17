@@ -5,6 +5,12 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 function Project() {
+  const [formData, setFormData] = useState({
+    title:'',
+    description:'',
+    url:'',
+    file:'',   
+});
   const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
@@ -51,10 +57,26 @@ function Project() {
     formData.append('file', projectPdf);
     formData.append('username', currentUser);
 
+    console.log("hgyhjjkjk");
+
     try {
-      const response = await axios.post('http://localhost:5000/api/projects', formData, {
-        headers: { 'Content-Type': 'multipart/form-data' },
+      const response = await axios.post('http://localhost:5000/api/projects',{
+        title:formData.title,
+        description:formData.description,
+        url:formData.url,
+        file:formData.file,
+            
       });
+      console.log("hgyhjjkjk");
+      console.log('Response:', response.data);
+      alert('Sharing is Caring!');
+      setFormData({
+        title:formData.title,
+        description:formData.description,
+        url:formData.url,
+        file:formData.file,
+      });
+
       console.log(response.data.message);
       setError('');
       setShowPopup(false);

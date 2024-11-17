@@ -15,6 +15,7 @@ const AffiliatedColleges = () => {
     useEffect(() => {
         axios.get('http://localhost:5000/api/all-colleges')
             .then(response => {
+                console.log(response)
                 setColleges(response.data.data); // Assuming your API returns data in this structure
             })
             .catch(error => {
@@ -23,8 +24,8 @@ const AffiliatedColleges = () => {
     }, []); // Empty dependency array means it runs once on component mount
 
     // Filter logic for search
-    const filteredColleges = colleges.filter((college) =>
-        college.collegeName.toLowerCase().includes(searchQuery.toLowerCase())
+    const filteredColleges = colleges?.filter((college) =>
+        college?.collegeName.toLowerCase().includes(searchQuery?.toLowerCase())
     );
 
     // Fetch details of a specific college when the modal is triggered
@@ -43,7 +44,7 @@ const AffiliatedColleges = () => {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
-
+    console.log(colleges);
     return (
         <div className='affiliated-college-page'>
             <header className='height-75'>
@@ -74,14 +75,14 @@ const AffiliatedColleges = () => {
             </div>
 
             {/* No results message */}
-            {filteredColleges.length === 0 && (
+            {filteredColleges && filteredColleges.length === 0 && (
                 <p className="no-results-message">No colleges found matching your search.</p>
             )}
 
             {/* Filtered Colleges */}
             <div className="container py-5">
                 <div className="row g-4">
-                    {filteredColleges.map((college) => (
+                    {filteredColleges && filteredColleges.map((college) => (
                         <div key={college._id} className='col-lg-6'>
                             <div onClick={() => handleShow(college._id)} style={{ cursor: 'pointer' }}>
                                 <Card className='text-white shadow scale-hover-effect'>

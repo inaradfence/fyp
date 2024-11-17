@@ -43,3 +43,7 @@ height: auto;
 .modal-footer .btn-secondary{
   background-color: rgb(103, 5, 88) !important; 
 }
+
+/* .custom-modal-course .modal-dialog{
+  left:unset !important;
+} */

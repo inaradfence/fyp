@@ -95,7 +95,7 @@ function App() {
   return (
     <div>
       <Navbar expand="lg" className="position-absolute w-100 navbar-purple">
-        <Container>
+        <Container className='m-0'>
           <Navbar.Brand>
             <Link to="/" className="navbar-brand d-flex align-items-center abc">
               <img src={logo} alt="Logo" className="navbar-logo" />

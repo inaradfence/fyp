@@ -170,6 +170,7 @@ import axios from 'axios';
 import { Card, Modal, Button } from 'react-bootstrap';
 import { IoSearch } from "react-icons/io5";
 import ArtCourseImg from '../../utils/images/art-course.jpg';
+import CourseCard from './CourseCard';
 
 
 const Courses = () => {
@@ -250,37 +251,7 @@ const Courses = () => {
             <div className="container py-5">
                 <div className="row g-4">
                     {allCourses.map((course, index) => (
-                        <div key={index} className='col-lg-6'>
-                            <div onClick={() => handleShow(course)} style={{ cursor: 'pointer' }}>
-                                <Card className='text-white shadow scale-hover-effect'>
-                                    <Card.Img src={ArtCourseImg} />
-                                    <Card.ImgOverlay className='d-flex flex-column align-items-center justify-content-center p-md-5'>
-                                        <Card.Title className='fs-1 text-danger'>{course.courseTitle}</Card.Title>
-                                        <Card.Text className='text-center'>{course.description}</Card.Text>
-                                    </Card.ImgOverlay>
-                                </Card>
-                            </div>
-                            <Modal show={show} onHide={handleClose} centered>
-                <Modal.Header closeButton>
-                    <Modal.Title>{selectedCourse ? selectedCourse.courseTitle : ''}</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <p>Below are some of the colleges offering this course:</p>
-                    <ul>
-                        {course.collegesOfferingCourse.length === 0 ? (
-                            <li>No colleges available for this course.</li>
-                        ) : (
-                            course.collegesOfferingCourse.map((college) => (
-                                <li key={college._id}>{college.collegeName}</li>
-                            ))
-                        )}
-                    </ul>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>Close</Button>
-                </Modal.Footer>
-            </Modal>
-                        </div>
+                        <CourseCard course={course} key={index}/>
                     ))}
                 </div>
             </div>

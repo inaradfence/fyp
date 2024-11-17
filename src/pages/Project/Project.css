@@ -30,9 +30,6 @@
 }
 
 .project-page .close-icon {
-  position: relative;
-  top: 45px;
-  left: 670px; /* Position the icon to the right */
   font-size: 35px;
   color: #333;
   cursor: pointer;
@@ -110,16 +107,14 @@
 
 /* Button styling */
 .add-project-button {
-  position: absolute !important;
-  bottom: -80px;
-  right: 20px;
+  
   background-color: #660742;
   color: white;
   font-size: 24px;
   border: none;
   border-radius: 8px;
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
 }
 .add-project-button:hover {
   background-color: rgba(103, 5, 88);
@@ -180,11 +175,18 @@ popup-content{
   margin-top: 30px;
   margin-bottom: 20px;
   display: flex;
-  justify-content: center;
+  justify-content: end;
+  align-items: center;
   width: 30%;
-  margin-left: 960px;
+  margin-left: auto;
 }
-
+@media(max-width:768px){
+  .search-bar-container{
+    margin-left:none;
+    width:100%;
+    padding:10px;
+  }
+}
 .search-bar {
   width: 50%;
   padding: 10px;
@@ -198,6 +200,7 @@ popup-content{
   font-size: 1rem;
   /* font-weight: bold; */
   position: relative;
-   right: -950px !important;
-   top: -30px;
+  display: flex ;
+  align-items: center;
+  justify-content: center;
 }

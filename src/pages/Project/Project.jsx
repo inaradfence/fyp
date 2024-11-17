@@ -11,6 +11,14 @@ function Project() {
     url:'',
     file:'',   
 });
+const handleChange = (e) => {
+  const { name, value } = e.target;
+  setFormData(prevData => ({
+      ...prevData,
+      [name]: value,
+  }));
+};
+
   const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
@@ -50,14 +58,7 @@ function Project() {
       return;
     }
 
-    const formData = new FormData();
-    formData.append('title', projectTitle);
-    formData.append('description', projectDescription);
-    formData.append('url', projectUrl);
-    formData.append('file', projectPdf);
-    formData.append('username', currentUser);
-
-    console.log("hgyhjjkjk");
+     console.log("hgyhjjkjk");
 
     try {
       const response = await axios.post('http://localhost:5000/api/projects',{
@@ -110,17 +111,19 @@ function Project() {
 
       {/* Search Bar */}
       <div className="search-bar-container">
-        <div className="input-group">
+        <div className="input-group position-relative">
           <input
             type="text"
             className="form-control search-bar"
             placeholder="Search ..."
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={handleChange}
             value={searchQuery}
           />
           <span className="input-group-text" id="search-icon">
             <IoSearch />
           </span>
+           {/* Add Project Button */}
+      <button onClick={() => setShowPopup(true)} className="add-project-button">+</button>
         </div>
       </div>
 
@@ -144,45 +147,52 @@ function Project() {
         ))}
       </div>
 
-      {/* Add Project Button */}
-      <button onClick={() => setShowPopup(true)} className="add-project-button">+</button>
+     
 
       {/* Share Project Section */}
       {showPopup && (
         <div className="popup-overlay" onClick={() => setShowPopup(false)}>
           <div className="popup-content" onClick={(e) => e.stopPropagation()}>
-            <span className="close-icon" onClick={() => setShowPopup(false)}>
-              &times;
-            </span>
+            
             <div className="col-lg-8 mb-4">
               <div className="share-section">
+                <div className="d-flex align-items-center justify-content-between">
                 <h2 className="display-5 fw-bold mb-4">Share Resources</h2>
+                <span className="close-icon" onClick={() => setShowPopup(false)}>
+              &times;
+            </span>
+            </div>
                 <div className="mb-4">
                   <input
+                  name='title'              
                     type="text"
                     className="form-control mb-2"
-                    value={projectTitle}
-                    onChange={(e) => setProjectTitle(e.target.value)}
+                    value={formData.title}
+                    onChange={handleChange}
                     placeholder="Title"
                   />
                   <input
+                  name='description'
                     type="text"
                     className="form-control mb-2"
-                    value={projectDescription}
-                    onChange={(e) => setProjectDescription(e.target.value)}
+                    value={formData.description}
+                    onChange={handleChange}
                     placeholder="Description"
                   />
                   <input
+                  name='url'
                     type="text"
                     className="form-control mb-2"
-                    value={projectUrl}
-                    onChange={(e) => setProjectUrl(e.target.value)}
+                    value={formData.url}
+                    onChange={handleChange}
                     placeholder="URL"
                   />
                   <input
+                  name='file'
                     type="file"
+                    value={formData.file}
                     className="form-control mb-2"
-                    onChange={(e) => setProjectPdf(e.target.files[0])}
+                    onChange={handleChange}
                   />
                   <div className="error message" style={{ color: 'red', marginBottom: '20px' }}>
                     {error}

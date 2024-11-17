@@ -191,13 +191,14 @@ popup-content{
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-.no-results-message {
+
+/* .no-results-message {
   color: red;
-  /* text-align: right; */
+  text-align: right; 
   margin-top: 10px;
   font-size: 1rem;
-  /* font-weight: bold; */
+  font-weight: bold; 
   position: relative;
-   /* right: -950px !important; */
+   right: -950px !important; 
    top: -30px;
-}
+} */

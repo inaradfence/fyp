@@ -29,7 +29,7 @@ function Login() {
       // Handle success
     if(response){
       setSuccess('Login successful!');
-      localStorage.setItem('token', JSON.stringify(response.data.token));
+      localStorage.setItem('token', response.data.token);
       localStorage.setItem('user', JSON.stringify(response.data.user));
       console.log(response.data);
       navigate("/")

@@ -183,10 +183,10 @@ const Courses = () => {
         const fetchData = async () => {
             try {
                 const response = await axios.get("http://localhost:5000/api/all-courses");
-                if (Array.isArray(response?.data)) {
-                    setCourses(response?.data);
+                if (Array.isArray(response?.data.data)) {
+                    setCourses(response?.data.data);
                 } else {
-                    console.error("Response data is not an array:", response?.data);
+                    console.error("Response data is not an array:", response?.data.data);
                 }
             } catch (error) {
                 console.error("Courses fetch error ", error);
@@ -249,7 +249,7 @@ const Courses = () => {
 
             <div className="container py-5">
                 <div className="row g-4">
-                    {filteredCourses.map((course, index) => (
+                    {allCourses.map((course, index) => (
                         <div key={index} className='col-lg-6'>
                             <div onClick={() => handleShow(course)} style={{ cursor: 'pointer' }}>
                                 <Card className='text-white shadow scale-hover-effect'>
@@ -260,13 +260,33 @@ const Courses = () => {
                                     </Card.ImgOverlay>
                                 </Card>
                             </div>
+                            <Modal show={show} onHide={handleClose} centered>
+                <Modal.Header closeButton>
+                    <Modal.Title>{selectedCourse ? selectedCourse.courseTitle : ''}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <p>Below are some of the colleges offering this course:</p>
+                    <ul>
+                        {course.collegesOfferingCourse.length === 0 ? (
+                            <li>No colleges available for this course.</li>
+                        ) : (
+                            course.collegesOfferingCourse.map((college) => (
+                                <li key={college._id}>{college.collegeName}</li>
+                            ))
+                        )}
+                    </ul>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>Close</Button>
+                </Modal.Footer>
+            </Modal>
                         </div>
                     ))}
                 </div>
             </div>
 
             {/* Modal */}
-            <Modal show={show} onHide={handleClose} centered>
+            {/* <Modal show={show} onHide={handleClose} centered>
                 <Modal.Header closeButton>
                     <Modal.Title>{selectedCourse ? selectedCourse.courseTitle : ''}</Modal.Title>
                 </Modal.Header>
@@ -285,7 +305,7 @@ const Courses = () => {
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>Close</Button>
                 </Modal.Footer>
-            </Modal>
+            </Modal> */}
         </div>
     );
 }

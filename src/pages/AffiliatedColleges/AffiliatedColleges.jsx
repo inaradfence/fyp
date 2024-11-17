@@ -1,69 +1,46 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './AffiliatedColleges.css'; // Ensure the correct path to your CSS file
 import { Card, Modal, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { IoSearch } from "react-icons/io5";
-import ArtCollegeImg from '../../assets/images/clg2.jpg'; // Adjust image imports
+import axios from 'axios'; // Import axios for making HTTP requests
 import BusinessCollegeImg from '../../assets/images/clg2.jpg';
-import ComputerScienceCollegeImg from '../../assets/images/clg2.jpg';
-import HealthcareCollegeImg from '../../assets/images/clg2.jpg';
-import EducationCollegeImg from '../../assets/images/clg2.jpg';
-import SportCollegeImg from '../../assets/images/clg2.jpg';
 
-const affiliatedColleges = [
-    {
-        id: 1,
-        img: [ArtCollegeImg],
-        title: 'KhanasPur Campus',
-        description: ' Unlock your creative potential with our dynamic Art College! Whether you’re an aspiring artist or looking to refine your skills, this college offers a vibrant and inspiring environment to explore various artistic disciplines. '
-    },
-    {
-        id: 2,
-        img: [BusinessCollegeImg],
-        title: 'Allama Iqbal Campus',
-        description: ' Elevate your career with our comprehensive Business College! Designed for aspiring entrepreneurs and business professionals, this college equips you with essential skills and knowledge to thrive in the competitive business world.'
-    },
-    {
-        id: 3,
-        img: [ComputerScienceCollegeImg],
-        title: 'Gujrawala Campus',
-        description: ' Dive into the world of technology with our engaging Computer Science College! Immerse yourself in coding, algorithms, and innovative tech.'
-    },
-    {
-        id: 4,
-        img: [EducationCollegeImg],
-        title: 'Quaid-e-Azam Campus',
-        description: ' Step into the world of possibilities with our Education College! Ideal for those passionate about shaping minds and making a difference in education.'
-    },
-    {
-        id: 5,
-        img: [HealthcareCollegeImg],
-        title: 'Jehlum Campus',
-        description: ' Transform your passion for helping others into a rewarding career with our Healthcare College! Learn about patient care, medical terminology, and health systems management.'
-    },
-    {
-        id: 6,
-        img: [SportCollegeImg],
-        title: 'Pothohar Campus',
-        description: ' Get ready to unleash your potential with our Sports College! Learn everything from sports management to physical training.'
-    }
-];
+const AffiliatedColleges = () => {
+    const [colleges, setColleges] = useState([]); // State to store all colleges
+    const [selectedCollege, setSelectedCollege] = useState(null); // State to store the selected college
+    const [searchQuery, setSearchQuery] = useState(''); // State to store search query
 
-function AffiliatedColleges() {
-    const [show, setShow] = useState(false);
-    const [selectedCollege, setSelectedCollege] = useState(null);
-    const [searchQuery, setSearchQuery] = useState('');
+    // Fetch all colleges from the API
+    useEffect(() => {
+        axios.get('http://localhost:5000/api/all-colleges')
+            .then(response => {
+                setColleges(response.data.data); // Assuming your API returns data in this structure
+            })
+            .catch(error => {
+                console.error('Error fetching colleges:', error);
+            });
+    }, []); // Empty dependency array means it runs once on component mount
 
     // Filter logic for search
-    const filteredColleges = affiliatedColleges.filter((college) =>
-        college.title.toLowerCase().includes(searchQuery.toLowerCase())
+    const filteredColleges = colleges.filter((college) =>
+        college.collegeName.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
-    const handleShow = (college) => {
-        setSelectedCollege(college);
+    // Fetch details of a specific college when the modal is triggered
+    const handleShow = (collegeId) => {
+        axios.get(`http://localhost:5000/api/all-colleges/${collegeId}`)
+            .then(response => {
+                setSelectedCollege(response.data.data); // Assuming the API returns college data in this structure
+            })
+            .catch(error => {
+                console.error('Error fetching college details:', error);
+            });
+
         setShow(true);
     };
+
+    const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
 
@@ -105,13 +82,13 @@ function AffiliatedColleges() {
             <div className="container py-5">
                 <div className="row g-4">
                     {filteredColleges.map((college) => (
-                        <div key={college.id} className='col-lg-6'>
-                            <div onClick={() => handleShow(college)} style={{ cursor: 'pointer' }}>
+                        <div key={college._id} className='col-lg-6'>
+                            <div onClick={() => handleShow(college._id)} style={{ cursor: 'pointer' }}>
                                 <Card className='text-white shadow scale-hover-effect'>
-                                    <Card.Img src={college.img} />
+                                    <Card.Img src={BusinessCollegeImg} />
                                     <Card.ImgOverlay className='d-flex flex-column align-items-center justify-content-center p-md-5'>
                                         <Card.Title className='fs-1 text-danger'>
-                                            {college.title}
+                                            {college.collegeName}
                                         </Card.Title>
                                         <Card.Text className='text-center'>
                                             {college.description}
@@ -119,31 +96,32 @@ function AffiliatedColleges() {
                                     </Card.ImgOverlay>
                                 </Card>
                             </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            {/* Modal */}
-            <Modal show={show} onHide={handleClose} centered>
+                            <Modal show={show} onHide={handleClose} centered>
                 <Modal.Header closeButton>
-                    <Modal.Title>{selectedCollege?.title}</Modal.Title>
+                    <Modal.Title>{college?.collegeName}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <p>Below are the some courses offering Affiliated College</p>
+                    <p>{college?.description}</p>
+                    <p>Below are some courses offered by {college?.collegeName}:</p>
                     <ul>
-                        <li>Art Course</li>
-                        <li>Business Course</li>
-                        <li>Education Course</li>
-                        <li>IT Course</li>
+                        {college?.courses && college.courses.map(course => (
+                            <li key={course._id}>{course.courseTitle}</li>
+                        ))}
                     </ul>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>Close</Button>
                 </Modal.Footer>
             </Modal>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* Modal */}
+           
         </div>
     );
-}
+};
 
 export default AffiliatedColleges;

@@ -9,8 +9,6 @@ import { useState, useEffect } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { io } from 'socket.io-client'; // Import socket.io client
-import { useDispatch } from 'react-redux'; // For dispatching actions
 
 import Home from './pages/Home/Home';
 import Contact from './pages/Contact/Contact';
@@ -46,39 +44,18 @@ function App() {
       navigate('/login'); // Redirect if no user
     }
 
-    socket.connect();
-    socket.auth = user;
-
-    socket.on("connect", () => {
-      console.log("socket connected");
-    });
-
-    // Listen for user connection and disconnection events
-    socket.on("user-connected", (users) => {
-      console.log("Users connected:", users);
-      dispatch(addUsers(users)); // Dispatch to Redux store
-    });
-
-    socket.on("user-disconnected", (users) => {
-      console.log("Users disconnected:", users);
-      dispatch(addUsers(users)); // Dispatch to Redux store
-    });
 
     // Cleanup on component unmount
-    return () => {
-      socket.off("user-connected");
-      socket.off("user-disconnected");
-      socket.disconnect();
-    };
-  }, [socket, dispatch, navigate]);
+    return;
+  }, [ navigate]);
 
-// Toggle modal and card visibility
-const handleShowProfileCard = () => setShowProfileCard(!showProfileCard);
-const handleCloseProfileModal = () => setShowProfileModal(false);
-const handleEditProfile = () => { // Corrected definition here
-  setShowProfileModal(true);
-  setShowProfileCard(false);
-};
+  // Toggle modal and card visibility
+  const handleShowProfileCard = () => setShowProfileCard(!showProfileCard);
+  const handleCloseProfileModal = () => setShowProfileModal(false);
+  const handleEditProfile = () => { // Corrected definition here
+    setShowProfileModal(true);
+    setShowProfileCard(false);
+  };
 
 
   const handleLogout = () => {
@@ -89,32 +66,32 @@ const handleEditProfile = () => { // Corrected definition here
     navigate('./');
   };
 
-const handleInputChange = (e) => {
-  const { name, value } = e.target;
-  setProfileData((prevData) => ({
-    ...prevData,
-    [name]: value,
-  }));
-};
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setProfileData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
-const handleImageChange = (e) => {
-  const file = e.target.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setProfileData((prevData) => ({
-        ...prevData,
-        picture: reader.result,
-      }));
-    };
-    reader.readAsDataURL(file);
-  }
-};
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setProfileData((prevData) => ({
+          ...prevData,
+          picture: reader.result,
+        }));
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
-const handleSaveChanges = () => {
-  console.log('Profile updated:', profileData);
-  setShowProfileModal(false);
-};
+  const handleSaveChanges = () => {
+    console.log('Profile updated:', profileData);
+    setShowProfileModal(false);
+  };
   return (
     <div>
       <Navbar expand="lg" className="position-absolute w-100 navbar-purple">
@@ -152,7 +129,7 @@ const handleSaveChanges = () => {
             <div>
               <h5>{profileData.firstname} {profileData.lastname}</h5>
               <p>{profileData.email}</p>
-              <p >{profileData.designation}</p> 
+              <p >{profileData.designation}</p>
             </div>
           </div>
 
@@ -177,10 +154,6 @@ const handleSaveChanges = () => {
             <Route path="/project" element={<Project />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/announcement" element={<Announcement />} />
-            <Route path="/ask-question" element={<Askquestion />} />
-            <Route path="/explore" element={<Explore />} />
-            <Route path="/chat" element={<Chat />} />
-            <Route path="/explore/:topic" element={<Content />} />
           </Routes>
         </CSSTransition>
       </TransitionGroup>
@@ -214,7 +187,7 @@ const handleSaveChanges = () => {
             <Form.Group className="mb-3" controlId="designation">
               <Form.Label>Designation</Form.Label>
               <Form.Select name="designation" value={profileData.designation} onChange={handleInputChange}>
-              
+
                 <option value="student">Student</option>
                 <option value="teacher">Teacher</option>
                 <option value="alumni">Alumni</option>
@@ -230,7 +203,7 @@ const handleSaveChanges = () => {
           <Button variant="primary" onClick={handleSaveChanges}>Save Changes</Button>
         </Modal.Footer>
       </Modal>
-    
+
 
       <Footer />
     </div>

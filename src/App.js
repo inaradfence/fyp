@@ -24,16 +24,6 @@ import Announcement from './pages/Announcement/Announcement';
 import SignUp from './pages/SignUp/Signup';
 import logo from './assets/images/logo.jpg';
 import profilePic from './utils/images/person6.jpg';
-import Askquestion from './components/discussionForm/Askquestion';
-import { addUsers } from './context/onlineSlice'; // Import action to add users (for Redux)
-import Explore from "./pages/discussionForm/Explore"
-import Chat from "./pages/discussionForm/Chat"
-import Content from "./components/discussionForm/Content"
-// Socket connection
-export const socket = io(`http://localhost:8080`, {
-  withCredentials: true,
-  secure: true,
-});
 
 function App() {
   const location = useLocation();
@@ -47,15 +37,6 @@ function App() {
     picture: profilePic,
     designation: 'Select Designation',
     institutename: '',
-  });
-
-  // Redux dispatch
-  const dispatch = useDispatch();
-
-  // Socket connection
-  const socket = io(`http://localhost:8080`, {
-    withCredentials: true,
-    secure: true,
   });
 
   // Effect for handling socket connection and events

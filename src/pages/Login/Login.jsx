@@ -27,10 +27,15 @@ function Login() {
       });
 
       // Handle success
+    if(response){
       setSuccess('Login successful!');
       localStorage.setItem('token', JSON.stringify(response.data.token));
+      localStorage.setItem('user', JSON.stringify(response.data.user));
       console.log(response.data);
       navigate("/")
+    }else{
+      alert("Login failed. Please try again!")
+    }
       console.log(response.data); // You might want to save the token and redirect the user here
     } catch (error) {
       // Handle error

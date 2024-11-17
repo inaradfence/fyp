@@ -40,9 +40,9 @@ function App() {
   // Effect for handling socket connection and events
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
-    if (!user) {
-      navigate('/login'); // Redirect if no user
-    }
+    // if (!user) {
+    //   navigate('/login'); // Redirect if no user
+    // }
 
 
     // Cleanup on component unmount

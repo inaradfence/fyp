@@ -1,0 +1,144 @@
+.home-page {
+    font-family: 'Arial', sans-serif;
+}
+header {
+    position: relative; /* Make header relative for positioning overlay */
+    background-image: linear-gradient(rgba(5,10,35,0.75), rgba(5,10,35,0.75)),url('../../utils/images/1st.jpg');
+    
+    /* background-image: url('../../utils/images/1st.jpg'); */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 50px 0;
+    text-align: center;  
+}
+
+.header-background {
+    position: absolute; /* Make it absolute to cover the header */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0; /* Behind the content */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background-color: rgba(5,10,35,0.7);Adjust the last value for desired transparency */
+    z-index: 1; /* Above the background */
+}
+
+.container {
+    position: relative; /* Ensure the text is above the overlay */
+    z-index: 2; /* Above the overlay */
+}
+
+/* Keep your existing styles below this */
+
+
+.welcome-text {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.main-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.intro-text {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    padding: 0 15px; /* Add some padding for smaller screens */
+    font-weight: 600;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-outline-light {
+    border-color: rgba(255, 255, 255, 0.5); /* Keep existing outline */
+    color: white; /* Default text color */
+}
+
+.btn-outline-light:hover {
+    background-color: #660742 !important; /* Purple color on hover */
+    color: white !important; /* Ensure text color is white on hover */
+    border-color: #660742 !important; /* Optional: change border color on hover */
+}
+
+/* You can keep the btn-primary and btn-secondary classes if needed */
+.btn-primary {
+    background-color: #007BFF; /* Bootstrap primary color */
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #660742 !important; /* Purple color on hover */
+    color: white !important; /* Change text color on hover */
+}
+
+.btn-secondary {
+    background-color: #6C757D; /* Bootstrap secondary color */
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #660742 !important; /* Purple color on hover */
+    color: white !important; /* Change text color on hover */
+}
+
+.choose-section {
+    padding: 50px 0;
+}
+
+.courses-section {
+    padding: 50px 0;
+    background-color: #f8f9fa; /* Light background for contrast */
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.section-description {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+img {
+    height: 420px;
+    width: 570px;
+    max-width: 100%; /* Ensure responsiveness */
+    height: auto; /* Maintain aspect ratio */
+    /* animation: moveUpDown 2s infinite alternate; Add animation */
+}
+
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(0); /* Start position */
+    }
+    100% {
+        transform: translateY(-10px); /* Move up 10px */
+    }
+}
+p {
+    padding-top: 15px;
+}
+
+@media (min-width: 768px) {
+    .button-group {
+        flex-direction: row;
+        justify-content: center; /* Center buttons on larger screens */
+    }
+}

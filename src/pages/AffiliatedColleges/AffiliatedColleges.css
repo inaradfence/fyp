@@ -1,0 +1,53 @@
+/* Affiliated College Page Header */
+.affiliated-college-page header {
+    background-image: linear-gradient(rgba(5,10,35,0.75), rgba(5,10,35,0.75)), url(../../utils/images/affiliatedcollege.jpg);
+    background-position: center;
+    height: 100vh; /* Full height */
+    padding-top: 75px; /* Adjust this based on the height of your navbar */
+    position: relative; /* Set position if you have absolute elements */
+}
+
+/* Button Style for Affiliated College */
+.btn-purple {
+    background-color: #660742 !important; /* Adjust the shade as needed */
+    color: white !important; /* Change text color for better contrast */
+    border: none !important; /* Remove border if needed */
+}
+
+.btn-purple:hover {
+    background-color: rgb(103, 5, 88) !important; 
+}
+
+/* Card Overlay Background for Affiliated College */
+.affiliated-college-page .card-img-overlay {
+    background-color: rgba(5,10,35,0.7); /* Adjust overlay color */
+}
+
+/* Hover effect for Affiliated College Cards */
+.affiliated-college-page .card:hover {
+    cursor: pointer;
+}
+
+/* Modal Styles */
+.modal-content {
+    position: relative;
+    max-width: 100% !important; /* Increase width of the modal */
+    height: auto;
+    left: -450px;
+}
+
+/* Modal Dialog Width */
+.modal-dialog {
+    /* position: relative; */
+    max-width: 40% !important; /* Set to a specific pixel width */
+    width: 60% !important;
+}
+
+/* Modal Footer Button Style */
+.modal-footer .btn-secondary {
+    background-color: #660742 !important;
+}
+
+.modal-footer .btn-secondary:hover {
+    background-color: rgb(103, 5, 88) !important;
+}

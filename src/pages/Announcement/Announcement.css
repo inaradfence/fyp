@@ -1,0 +1,112 @@
+/* Header Styles */
+.announcement-page header {
+    background-image: linear-gradient(rgba(5, 10, 35, 0.75), rgba(5, 10, 35, 0.75)), url('../../utils/images/3rd.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh; /* Ensure full height on all screens */
+    height: auto;
+    padding-top: 75px; /* Adjust this based on the height of your navbar */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the content */
+}
+
+/* Container and Layout Styles */
+.container {
+    padding: 2rem;
+}
+
+.row {
+    margin-bottom: 1.5rem;
+}
+
+/* Navbar and Tab Styles */
+.nav-tabs {
+    border-bottom: 2px solid #ddd;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.nav-item {
+    margin-right: 1rem;
+}
+
+.nav-link {
+    color: #007bff !important;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 1rem;
+}
+
+.nav-link.active {
+    color: #fff !important;
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+    font-weight: bold;
+}
+
+/* Announcements Item Styles */
+.announcement-item {
+    padding: 1.5rem;
+    border-radius: 20px;
+    /* background-color: #fafafa; */
+    background-color: #f1f1f1fb;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Add box-shadow transition */
+    margin-bottom: 1.2rem;
+}
+
+.announcement-item:hover {
+    background-color: #e0dbdb;
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2); /* Add shadow for better hover effect */
+}
+
+.announcement-item .text-muted {
+    font-size: 0.9rem;
+    color: #6d6c7d;
+}
+
+.announcement-item h5 {
+    font-size: 1.25rem;
+    color: #333;
+    margin-top: 0.5rem;
+    font-weight: bold;
+}
+
+.announcement-item p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Read More Link Styling */
+.read-more {
+    font-size: 1rem;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .announcement-item {
+        padding: 1rem;
+    }
+
+    .nav-tabs {
+        flex-direction: column;
+        padding: 0; /* Remove extra padding on small screens */
+    }
+
+    .nav-item {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
+    .announcement-page header {
+        min-height: 70vh; /* Reduce height for smaller screens */
+        padding-top: 50px; /* Adjust for smaller screens */
+    }
+}

@@ -1,0 +1,13 @@
+.about-page header{
+    background-image: linear-gradient(rgba(5,10,35,0.75), rgba(5,10,35,0.75)),url('../../utils/images/home-page-header1.jpg');
+}
+
+.about{
+    padding-top: 25px;
+    padding-left: 85px;
+    
+}
+.image{
+     padding-top: 100px;
+    
+}

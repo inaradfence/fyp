@@ -1,0 +1,45 @@
+.courses-page header {
+  background-image: linear-gradient(rgba(5,10,35,0.75), rgba(5,10,35,0.75)), url(../../utils/images/courses-page-header.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Full height */
+  padding-top: 75px; /* Adjust this based on the height of your navbar */
+  position: relative; /* Set position if you have absolute elements */
+}
+.btn-purple {
+  background-color: #660742 !important; /* Adjust the shade as needed */
+  color: white !important; /* Change text color for better contrast */
+  border: none !important; /* Remove border if needed */
+}
+
+.btn-purple:hover {
+  background-color: rgb(103, 5, 88) !important; 
+}
+.courses-page .card-img-overlay{
+  background-color: rgba(5,10,35,0.7);
+}
+.courses-page .card:hover{
+  cursor: pointer;
+}
+/* Modal styles */
+.modal-content {
+  position: relative;
+  max-width: 100% ; 
+height: auto;
+  left: -30px;
+}
+
+.modal-dialog {
+  position: relative;
+  max-width: 10% ; /* Set to a specific pixel width */
+  width: 10% ;
+ 
+}
+
+.modal-footer .btn-secondary {
+  background-color: #660742 !important;
+ 
+}
+.modal-footer .btn-secondary{
+  background-color: rgb(103, 5, 88) !important; 
+}

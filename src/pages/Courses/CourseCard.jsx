@@ -29,12 +29,10 @@ const CourseCard = ({ course }) => {
   return (
     <div className="col-lg-6">
       <div className="d-block w-100 h-100" onClick={() => handleShow(course)} style={{ cursor: "pointer" }}>
-        <Card className="text-white shadow scale-hover-effect position-relative course-card h-100" style={{
-            backgroundImage: `url(${ArtCourseImg})`
-        }}>
+        <Card className="text-white shadow scale-hover-effect position-relative course-card h-100">
           
           <div className="d-flex flex-column align-items-center justify-content-center p-md-5 px-3 py-4 p-md-2 h-100" style={{
-            backgroundColor: 'rgba(0,0,0,0.7)',
+            backgroundColor: 'rgba(0,0,0,0.8)',
             zIndex: 1
           }}>
             <Card.Title className="fs-1 text-danger text-center">

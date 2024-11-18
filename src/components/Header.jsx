@@ -7,6 +7,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Header = () => {
   const [showProfileModal, setShowProfileModal] = useState(false);
@@ -20,8 +21,10 @@ const Header = () => {
     institutename: "",
   });
   const [loggedIn, setLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(false);
   const handleShowProfileCard = () => setShowProfileCard(!showProfileCard);
   const handleCloseProfileModal = () => setShowProfileModal(false);
+
   const navigate = useNavigate();
   const handleEditProfile = () => {
     // Corrected definition here
@@ -58,10 +61,29 @@ const Header = () => {
     }
   };
 
-  const handleSaveChanges = () => {
+  const handleSaveChanges = async () => {
     console.log("Profile updated:", profileData);
-    localStorage.setItem("user", JSON.stringify(profileData));
-    setShowProfileModal(false);
+    try {
+      setLoading(true);
+      const res = await axios.post(
+        `http://localhost:5000/api/updateuser/${profileData?.id}`,
+        profileData
+      );
+      console.log(res);
+      if (res?.status === 200) {
+        localStorage.setItem("user", JSON.stringify(profileData));
+        setLoggedIn(true);
+        setShowProfileModal(false);
+        setLoading(false);
+        alert("Profile updated successfully");
+      } else {
+        setLoading(false);
+        alert("Profile not updated");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    //setShowProfileModal(false);
   };
 
   useEffect(() => {
@@ -155,20 +177,22 @@ const Header = () => {
       </Navbar>
       {loggedIn && showProfileCard ? (
         <div className="profile-card">
-          <div className="profile-card-header">
-            <img
-              src={
-                "https://res.cloudinary.com/dcxfsvq4i/image/upload/v1731949762/Personal/27470334_7309681_ktsak2.jpg"
-              }
-              alt="Profile"
-              className="profile-card-pic"
-            />
-            <div className="d-flex align-items-center justify-content-center flex-column gap-1">
-              <h5 className="mb-1 pt-2">
+          <div className="profile-card-header m-0">
+            <div className="d-flex align-items-center justify-content-start gap-2">
+              <img
+                src={
+                  "https://res.cloudinary.com/dcxfsvq4i/image/upload/v1731949762/Personal/27470334_7309681_ktsak2.jpg"
+                }
+                alt="Profile"
+                className="profile-card-pic m-0"
+              />
+              <h5 className="mb-1 pt-0">
                 {profileData?.firstname} {profileData?.lastname}
               </h5>
-              <p className="m-0 p-0">{profileData?.email}</p>
-              <p className="m-0 p-0">{profileData?.designation}</p>
+            </div>
+            <div className="d-flex align-items-center justify-content-start flex-column gap-1 text-left pt-1">
+              <p className="m-0 p-0 w-100" style={{ fontSize: "14px", fontWeight: "500" }}>Email: {profileData?.email}</p>
+              <p className="m-0 p-0 w-100" style={{ fontSize: "14px", fontWeight: "500" }}>Designation: {profileData?.designation}</p>
             </div>
           </div>
 
@@ -281,7 +305,7 @@ const Header = () => {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={handleSaveChanges}>
-            Save Changes
+            {loading ? "Saving..." : "Save Changes"}
           </Button>
         </Modal.Footer>
       </Modal>

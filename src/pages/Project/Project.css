@@ -56,10 +56,10 @@
   border: 1px solid #50052d;
   border-radius: 8px;
   box-shadow: 0 24px 20px rgba(62, 4, 110, 0.635);
-  width: 400px; /* Fixed card size */
+  max-width: 30%; /* Fixed card size */
+  width: 100%;
   margin: 30px;
   padding: 20px;
-  bottom: -35px;
   background-color: #ffffff; /* Background color for cards */
 }
 
@@ -84,15 +84,15 @@
 }
 
 .project-page .card a {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 5px;
+  color: #071a2f;
   text-decoration: none;
+  text-transform: uppercase;
+  font-size:13px;
 }
 
 .project-page .card a:hover {
-  background-color: #0056b3;
+  color: #0056b3;
+  text-decoration: underline;
 }
 
 /* Layout for Project Cards (Horizontal layout) */
@@ -151,7 +151,7 @@ popup-content{
 @media (max-width: 768px) {
   .project-page .card{
     max-width:100%;
-    left: 15%;
+  
   }
     .add-project-button{
      left: 350px;
@@ -160,10 +160,11 @@ popup-content{
 }
 
 @media (max-width: 576px) {
+  .project-cards{
+    padding:12px !important;
+  }
   .project-page .card{
     max-width: 600%;
-    left: 4%;
-    top: 50px;
   }
   .add-project-button{
   bottom: -8%;

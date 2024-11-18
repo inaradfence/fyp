@@ -3,6 +3,7 @@ import "./Project.css";
 import { IoSearch } from "react-icons/io5";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { formatDate } from "../../utils/libs";
 
 function Project() {
   const navigate = useNavigate();
@@ -44,13 +45,13 @@ function Project() {
   };
 
   const handleShareProject = async () => {
-    if (!projectTitle || !projectDescription) {
+    if (!formData?.title || !formData?.description) {
       setError(
         "Please complete your credentials (Title and Description are required)"
       );
       return;
     }
-    if (!projectUrl && !projectPdf) {
+    if (!formData?.url && !formData?.file) {
       setError(
         "Please provide either a Project URL or choose a file to share."
       );
@@ -65,7 +66,7 @@ function Project() {
         description: formData.description,
         url: formData.url,
         file: formData.file,
-        email: currentUser?.email
+        user: currentUser?.id,
       });
 
       console.log("hgyhjjkjk");
@@ -76,7 +77,7 @@ function Project() {
         description: formData.description,
         url: formData.url,
         file: formData.file,
-        userId: currentUser?.id
+        userId: currentUser?.id,
       });
       //console.log(response.data.message);
       setError("");
@@ -115,7 +116,7 @@ function Project() {
     setCurrentUser(user ? JSON.parse(user) : null);
     fetchProjects();
   }, []);
-
+  console.log(projects);
   return (
     <div className="project-page">
       <header>
@@ -158,12 +159,11 @@ function Project() {
       <div className="project-cards">
         {filteredProjects &&
           filteredProjects?.map((project, index) => (
-            <div key={index} className="card">
-              <h3 className="card-title">{project?.title}</h3>
-              <p className="card-text">{project?.description}</p>
-              <p>
-                <strong>Shared by:</strong> {project.username}
-              </p>
+            <div key={index} className="card m-0">
+              <h3 className="card-title text-capitalize mb-3">
+                {project?.title}
+              </h3>
+              <p className="card-text pt-0">{project?.description}</p>
               {project.url || project.file ? (
                 <a
                   href={
@@ -171,13 +171,76 @@ function Project() {
                       ? project.url
                       : URL.createObjectURL(project.file)
                   }
-                  className="btn btn-purple btn-sm me-2"
+                  className="me-2 mt-auto "
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  View
+                  View Project
+                  <svg
+                    width="15"
+                    height="15"
+                    viewBox="0 0 15 15"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z"
+                      fill="currentColor"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                    ></path>
+                  </svg>
                 </a>
               ) : null}
+              <p className="p-0 mb-2">
+                Shared On:{" "}
+                <span
+                  className=""
+                  style={{
+                    fontSize: "14px",
+                    color: "#50052d",
+                    fontWeight: "500",
+                    lineHeight: "1.2",
+                  }}
+                >
+                  {formatDate(project?.createdAt)}
+                </span>
+              </p>
+
+              {project?.user && (
+                <>
+                  <p className="p-0 mb-2">
+                    <strong>Shared by:</strong>
+                  </p>
+                  <div className="d-flex align-items-center mb-2 justify-content-start gap-2">
+                    <img
+                      src="https://res.cloudinary.com/dcxfsvq4i/image/upload/v1731949762/Personal/27470334_7309681_ktsak2.jpg"
+                      alt="Profile"
+                      className="profile-image"
+                      style={{
+                        width: "50px",
+                        height: "50px",
+                        borderRadius: "50%",
+                        objectFit: "cover",
+                      }}
+                    />
+                    <span
+                      className="text-sm"
+                      style={{
+                        fontSize: "14px",
+                        color: "#50052d",
+                        fontWeight: "500",
+                        lineHeight: "1.2",
+                        textStyle: 'normal',
+                      }}
+                    >
+                      {project?.user?.firstname} {project?.user?.lastname}{" "}
+                      <br />
+                      {project?.user?.designation}
+                    </span>
+                  </div>
+                </>
+              )}
             </div>
           ))}
       </div>

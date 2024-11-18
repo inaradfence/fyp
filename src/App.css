@@ -75,7 +75,7 @@ nav .navbar-toggler:focus {
 
 @media only screen and (max-width: 768px) {
   header h1 {
-    font-size: 3rem;
+    font-size: 2rem;
   }
   .navbar-purple .navbar-toggler {
     border-color: #ffffff;
@@ -85,7 +85,7 @@ nav .navbar-toggler:focus {
 
 @media only screen and (max-width: 576px) {
   header h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 }
 
@@ -178,14 +178,14 @@ footer::before {
     margin-left: -20px;
     top: 50%;
   }
-  .profile-pic-navbar {
+  /* .profile-pic-navbar {
     top: 80px;
 margin-right:20px;
   }
   .profile-card {
    top: 90px  !important;
    margin-right: 68px;
-  }
+  } */
   .navbar-purple .navbar-toggler{
     margin-top: -50px !important;
   }
@@ -197,14 +197,14 @@ margin-right:20px;
     width: 25px;
     margin-left: -20px; 
   }
-  .profile-pic-navbar {
+  /* .profile-pic-navbar {
     top: 80px;
 margin-right:20px;
   }
   .profile-card {
    top: 90px  !important;
    margin-right: 40px;
-  }
+  } */
   .navbar-purple .navbar-toggler{
     margin-top: -50px !important;
   }
@@ -218,8 +218,8 @@ margin-right:20px;
   object-fit: cover;
   border: 2px solid #fff;
   cursor: pointer;
-  position: absolute; 
-  right: -70px;
+  /* position: absolute; 
+  right: -70px; */
 }
 
 .profile-pic-navbar:hover {
@@ -238,6 +238,9 @@ margin-right:20px;
   background-color: #660742;
   color: #fff;
   border-bottom: none;
+}
+.modal-header .btn-close{
+  color: #fff !important;
 }
 
 .modal-footer {
@@ -327,10 +330,7 @@ margin-right:20px;
     font-size: 14px;
   }
 
-  /* Example: Adjust header font size */
-  header h1 {
-    font-size: 3.5rem;
-  }
+
 
   /* Adjust profile picture size */
   .profile-pic-navbar {
@@ -442,6 +442,18 @@ margin-right:20px;
 }
 
 /* Media Query Here */
+@media(max-width:1200px){
+  .site-main-header.navbar-expand-lg .navbar-collapse{
+    display:none !important;
+  }
+  .site-main-header .navbar-toggler{
+    display:block !important;
+  }
+  .site-main-header .navbar-collapse.show{
+    display:block !important;
+  }
+}
+
 @media(max-width:768px){
   .toggle-btn-for-mobile{
     padding:8px;

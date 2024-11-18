@@ -19,7 +19,7 @@ function Home(){
                 <div className='container d-flex flex-column align-items-center'>
                     <h2 className='pt-5'>Welcome To</h2>                    
                     <h1 className='text-center fw-semibold'>Punjab University Students Interaction Portal (PU-SIP)</h1>
-                    <p className='text-align-center px-5 py-2'>
+                    <p className='text-align-center p-0 px-md-5 py-md-2'>
                  Here, we strive to foster a vibrant and connected campus community by providing a seamless platform for students to engage, collaborate, and share their academic and extracurricular experiences. Whether you’re looking to join student clubs, find study groups, access important announcements, or connect with peers and faculty, our portal offers a user-friendly space to enhance your university life. Dive in to explore resources, participate in discussions, and stay updated with everything Punjab University has to offer. Together, let’s make the most of our time here and build lasting connections.                    </p>                
                     <div className='d-flex flex-column flex-sm-row align-items-center'>
                         <Link to="/courses">

@@ -110,3 +110,11 @@
         padding-top: 50px; /* Adjust for smaller screens */
     }
 }
+
+@media(max-width:786px){
+    .modal-content{
+        width: 95% !important;
+        margin-right: auto;
+        padding:10px;
+    }
+}

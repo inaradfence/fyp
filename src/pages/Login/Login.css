@@ -2,15 +2,7 @@
     background-image: linear-gradient(rgba(5,10,35,0.75), rgba(5,10,35,0.75)), url(../../utils/images/login-page-img.jpg);
     /* background-color: rgba(166, 48, 37, 0.75); */
 }
-.heading{
-    padding-left: 320px;
-    padding-top: 150px;
-}
-.signup-form{
-    padding-top: 100px;
-    padding-left: 420px;
 
-}
 #login-form {
     width: 50%
 }

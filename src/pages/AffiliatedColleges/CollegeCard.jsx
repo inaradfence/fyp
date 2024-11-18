@@ -31,7 +31,7 @@ const CollegeCard = ({ college }) => {
         <Card className="text-white shadow scale-hover-effect">
           <Card.Img src={BusinessCollegeImg} />
           <Card.ImgOverlay className="d-flex flex-column align-items-center justify-content-center p-md-5">
-            <Card.Title className="fs-1 text-danger">
+            <Card.Title className="fs-1 text-danger text-center">
               {college.collegeName}
             </Card.Title>
             <Card.Text className="text-center">{college.description}</Card.Text>

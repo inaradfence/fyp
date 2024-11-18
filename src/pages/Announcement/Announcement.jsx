@@ -3,6 +3,7 @@ import { Container, Row, Col, Nav, Modal, Button } from 'react-bootstrap'; // Im
 import './Announcement.css';
 import axios from 'axios';
 import  { useState, useEffect } from 'react';
+import { formatDate } from '../../utils/libs';
 
 
 const Announcement = () => {
@@ -63,9 +64,9 @@ const Announcement = () => {
   return (
     <div className="announcement-page">
       <header className="height-75">
-        <div className="container h-100 d-flex flex-column align-items-center justify-content-center text-light">
-          <h1 className="text-center fw-semibold">Announcements</h1>
-          <p className="text-center pt-3 w-75 mb-5">
+        <div className="container h-100 d-flex flex-column align-items-center justify-content-center text-light pb-0">
+          <h1 className="text-center fw-semibold pt-5 pt-md-0">Announcements</h1>
+          <p className="text-center pt-3 w-100 w-md-75 mb-md-5">
            "Welcome to our Announcement Page, where knowledge meets innovation! Stay updated with the latest news, exciting events, and important updates that will enhance your learning journey. From new course launches to special webinars, this is your go-to spot for all things educational. Dive in and discover what’s happening today!"
           </p>
         </div>
@@ -76,7 +77,7 @@ const Announcement = () => {
           <Col>
             {allAnnouncement.map((announcement, index) => (
               <div key={index} className="announcement-item py-3 border-bottom">
-                <p className="mb-1 text-muted">{announcement.date}</p>
+                <p className="mb-1 text-muted">{formatDate(announcement?.date)}</p>
                 <h5>{announcement.title}</h5>
                 <p>{announcement.description.slice(0, 100)}...</p>
                 <Button variant="link" onClick={() => handleShow(announcement)}>
@@ -94,7 +95,7 @@ const Announcement = () => {
           <Modal.Title>{selectedAnnouncement?.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h5>{selectedAnnouncement?.date}</h5>
+          <h5>{formatDate(selectedAnnouncement?.date)}</h5>
           <p>{selectedAnnouncement?.description}</p>
         </Modal.Body>
         <Modal.Footer>

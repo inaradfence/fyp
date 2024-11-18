@@ -47,3 +47,11 @@ height: auto;
 /* .custom-modal-course .modal-dialog{
   left:unset !important;
 } */
+.course-card{
+  min-height:400px;
+  background-size: contain;
+    background-position: center;
+}
+@media(max-width:768px){
+ 
+}

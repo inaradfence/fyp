@@ -2,18 +2,7 @@
     background-image: linear-gradient(rgba(5,10,35,0.75), rgba(5,10,35,0.75)), url(../../utils/images/login-page-img.jpg);
     /* background-color: rgba(166, 48, 37, 0.75); */
 }
-.heading{
-    padding-left: 320px;
-    padding-top: 100px;
-}
-.signup-form{
-    padding-top: 50px;
-    padding-left: 420px;
 
-}
-#login-form {
-    width: 50%
-}
 #login-form .form-control:focus,
 #login-form .form-select:focus{
     border-color: #dc3545;

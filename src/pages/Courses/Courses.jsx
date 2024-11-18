@@ -214,16 +214,16 @@ const Courses = () => {
 
   const filteredCourses = allCourses.filter(
     (course) =>
-      course.courseTitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      course.description.toLowerCase().includes(searchQuery.toLowerCase())
+      course?.courseTitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      course?.description.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
     <div className="courses-page">
       <header className="height-75">
-        <div className="container h-100 d-flex flex-column align-items-center justify-content-center text-light">
+        <div className="container h-100 d-flex flex-column align-items-center justify-content-end justify-content-md-center text-light">
           <h1 className="text-center fw-semibold">Our Courses</h1>
-          <p className="text-center w-75 mb-5">
+          <p className="text-center w-100 w-md-75 mb-md-5">
             Here, you can easily access comprehensive information about all the
             academic programs offered at Punjab University. Whether you're
             looking to explore new subjects, track your current courses, or find
@@ -264,9 +264,11 @@ const Courses = () => {
 
       <div className="container py-5">
         <div className="row g-4">
-          {allCourses.map((course, index) => (
-            <CourseCard course={course} key={index} />
-          ))}
+          {filteredCourses && filteredCourses?.map((course, index) => {
+            return (
+              <CourseCard course={course} key={index} />
+            ) 
+          })}
         </div>
       </div>
 

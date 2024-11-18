@@ -48,14 +48,12 @@ function Login() {
   return (
     <div className='login-page'>
       {/* header section start */}
-      <header className='h-100 min-vh-100 text-light'>
-        <div className="container h-100 d-flex text-light">
-          <div className='heading'>
-            <h1 className='text-center fw-semibold'>Login</h1>
-          </div>
+      <header className='h-100 min-vh-100 text-light d-flex align-items-center justify-content-center flex-column'>
+        <div className="container h-100 d-flex text-light align-items-center justify-content-center">
+        <h1 className='text-center fw-semibold'>Login</h1>
         </div>
-        <div className='signup-form'>
-          <div className='container justify-content-center'>
+        <div className='signup-form container mx-auto'>
+          <div className='d-flex align-items-center justify-content-center'>
             <Form id='login-form' onSubmit={handleSubmit}>
               <Form.Group className='mb-3'>
                 <Form.Label>Email:</Form.Label>

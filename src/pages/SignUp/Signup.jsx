@@ -1,91 +1,94 @@
-import React, { useState } from 'react';
-import './SignUp.css';
-import Form from 'react-bootstrap/Form';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import Button from 'react-bootstrap/Button';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import "./SignUp.css";
+import Form from "react-bootstrap/Form";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Button from "react-bootstrap/Button";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function SignUp() {
   // Define state variables for form fields
-  const [firstname, setFirstname] = useState('');
-  const [lastname, setLastname] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [address, setAddress] = useState('');
-  const [designation, setDesignation] = useState('Student');
-  const [institute, setInstitute] = useState('');
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [address, setAddress] = useState("");
+  const [designation, setDesignation] = useState("Student");
+  const [institute, setInstitute] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent the default form submission
 
     try {
       // Send a POST request with form data
-      const response = await axios.post('http://localhost:5000/api/register', {
-        firstname,
-        lastname,
-        email,
-        password,
-        address,
-        designation,
-        institute
-      }, {
-        headers: {
-          'Content-Type': 'application/json',
-    }});
+      const response = await axios.post(
+        "http://localhost:5000/api/register",
+        {
+          firstname,
+          lastname,
+          email,
+          password,
+          address,
+          designation,
+          institute,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       // Handle success
-      setSuccess('Signup successful!');
+      setSuccess("Signup successful!");
       navigate("/");
       console.log(response.data); // You might want to save the token and redirect the user here
     } catch (error) {
       // Handle error
-      setError('Signup failed. Please check your credentials.');
+      setError("Signup failed. Please check your credentials.");
       // console.error("Signup error ", error);
     }
   };
 
   return (
-    <div className='login-page'>
+    <div className="login-page">
       {/* header section start */}
-      <header className='h-100 min-vh-100 text-light'>
-        <div className="container h-100 d-flex text-light">
-          <div className='heading'>
-            <h1 className='text-center fw-semibold'>Sign Up</h1>
-          </div>
+      <header className="h-100 min-vh-100 text-light d-flex align-items-center justify-content-center flex-column">
+        <div className="container h-100 d-flex text-light align-items-center justify-content-center pb-0 pt-5">
+          <h1 className="text-center fw-semibold pt-5">Sign Up</h1>
         </div>
-        <div className='signup-form'>
-          <div className='container justify-content-center'>
-            <Form id='login-form' onSubmit={handleSubmit}>
-              <Row className='mb-1'>
-                <Col sm={12} md={6} className='mb-1 mb-md-0'>
+        <div className="signup-form container mx-auto">
+          <div className="d-flex align-items-center justify-content-center">
+            <Form id="login-form" onSubmit={handleSubmit}>
+              <Row className="mb-1">
+                <Col sm={12} md={6} className="mb-1 mb-md-0">
                   <Form.Label>First Name:</Form.Label>
                   <Form.Control
-                    placeholder='First Name'
+                    placeholder="First Name"
                     value={firstname}
                     onChange={(e) => setFirstname(e.target.value)}
                   />
                 </Col>
-                <Col sm={12} md={6} className='mb-1 mb-md-0'>
+                <Col sm={12} md={6} className="mb-1 mb-md-0">
                   <Form.Label>Last Name:</Form.Label>
                   <Form.Control
-                    placeholder='Last Name'
+                    placeholder="Last Name"
                     value={lastname}
                     onChange={(e) => setLastname(e.target.value)}
                   />
                 </Col>
               </Row>
 
-              <Form.Group className='mb-1'>
+              <Form.Group className="mb-1">
                 <Form.Label>Email:</Form.Label>
                 <Form.Control
-                  type='email'
-                  placeholder='Enter Email'
+                  type="email"
+                  placeholder="Enter Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -100,17 +103,17 @@ function SignUp() {
                 />
               </Form.Group>
 
-              <Form.Group className='mb-1'>
+              <Form.Group className="mb-1">
                 <Form.Label>Address:</Form.Label>
                 <Form.Control
-                  placeholder='Address'
+                  placeholder="Address"
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
                 />
               </Form.Group>
 
-              <Row className='mb-1'>
-                <Col sm={12} md={6} className='mb-1 mb-md-0'>
+              <Row className="mb-1">
+                <Col sm={12} md={6} className="mb-1 mb-md-0">
                   <Form.Label>Designation:</Form.Label>
                   <Form.Select
                     defaultValue={designation}
@@ -123,20 +126,26 @@ function SignUp() {
                 </Col>
               </Row>
 
-              <Form.Group className='mb-1'>
+              <Form.Group className="mb-1">
                 <Form.Label>Institute Name:</Form.Label>
                 <Form.Control
-                  placeholder='Institute Name'
+                  placeholder="Institute Name"
                   value={institute}
                   onChange={(e) => setInstitute(e.target.value)}
                 />
               </Form.Group>
-<p>Already have an account <a href='/login'>Login</a></p>
-              <Button variant="purple btn-lg text-light" type="submit">Sign Up</Button>
+              <p>
+                Already have an account <a href="/login">Login</a>
+              </p>
+              <Button variant="purple btn-lg text-light" type="submit">
+                Sign Up
+              </Button>
 
               {/* Display success or error message */}
-              {error && <div className='alert alert-danger mt-1'>{error}</div>}
-              {success && <div className='alert alert-success mt-1'>{success}</div>}
+              {error && <div className="alert alert-danger mt-1">{error}</div>}
+              {success && (
+                <div className="alert alert-success mt-1">{success}</div>
+              )}
             </Form>
           </div>
         </div>
@@ -146,4 +155,4 @@ function SignUp() {
   );
 }
 
-export default SignUp
+export default SignUp;

@@ -31,10 +31,10 @@ function ChooseSection() {
                 </svg>
               </div>
               <Card.Body>
-                <Card.Title className="text-center text-capitalize mb-3">
+                <Card.Title className="text-center text-capitalize mb-2 pt-2">
                   Centralized Communication Hub
                 </Card.Title>
-                <Card.Text className="text-center">
+                <Card.Text className="text-center pt-0">
                   PU-SIP serves as a unified platform where students can access
                   a wealth of information and resources in one place. It
                   streamlines communication, ensuring you stay informed and
@@ -65,10 +65,10 @@ function ChooseSection() {
                 </svg>
               </div>
               <Card.Body>
-                <Card.Title className="text-center text-capitalize mb-3">
+                <Card.Title className="text-center text-capitalize mb-2 pt-2">
                   Enhanced Collaboration Opportunities
                 </Card.Title>
-                <Card.Text className="text-center">
+                <Card.Text className="text-center pt-0">
                   Our platform facilitates easy collaboration among students,
                   faculty, and staff. Whether you’re looking to join study
                   groups, participate in discussions, or connect with student
@@ -102,10 +102,10 @@ function ChooseSection() {
                 </svg>
               </div>
               <Card.Body>
-                <Card.Title className="text-center text-capitalize mb-3">
+                <Card.Title className="text-center text-capitalize mb-2 pt-2">
                   Access to Projects and Resources
                 </Card.Title>
-                <Card.Text className="text-center">
+                <Card.Text className="text-center pt-0">
                   PU-SIP centralizes access to a wide range of academic projects
                   and resources. It facilitates seamless sharing and
                   collaboration on projects with peers, making group work

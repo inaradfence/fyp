@@ -384,28 +384,6 @@ margin-right:20px;
   margin-top: 10px;
 }
 
-.profile-card-header h5 {
-  font-size: 18px;
-  font-weight: 600;
- margin-left:90px;
-  color: #0c0208; 
-  margin-top: 20px;
-}
-
-.profile-card-header p {
-  font-size: 14px;
-  color: #666;
-  margin-top: -18px;
-  margin-left: 25px;
-}
-
-.profile-card-header p:last-child {
-  font-weight: bold;
-  font-size: 14px;
-  text-transform: uppercase; /* Optional: Make designation stand out */
- margin-left: 70px;
- margin-top: -40px;
-}
 
 .profile-card button {
   font-size: 12px;

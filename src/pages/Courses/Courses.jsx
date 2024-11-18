@@ -47,8 +47,6 @@
 //     }
 // ];
 
-    
-
 // function Courses(){
 
 //     const [allCourses, setCourses] = useState([]);
@@ -68,8 +66,8 @@
 
 //       const [show, setShow] = useState(false);
 //     const [selectedCourse, setSelectedCourse] = useState(null);
-//     const [searchQuery, setSearchQuery] = useState(''); 
-   
+//     const [searchQuery, setSearchQuery] = useState('');
+
 //     const handleShow = (course) => {
 //         setSelectedCourse(course);
 //         setShow(true);
@@ -90,9 +88,9 @@
 
 //                     <Link to="https://pu.edu.pk/page/show/course_outline.html">
 //                     <button type='button' className='list btn btn-purple btn-lg mx-0 mx-sm-2  '>List of PU Courses</button>
-//                     </Link> 
+//                     </Link>
 //                 </div>
-                
+
 //             </header>
 //             <div className="search-bar-container my-4">
 //         <div className="input-group">
@@ -126,7 +124,7 @@
 //                                     <Card.Text className='text-center'>
 //                                         {course.description}
 //                                     </Card.Text>
-                    
+
 //                                 </Card.ImgOverlay>
 //                             </Card>
 
@@ -135,7 +133,7 @@
 //                     ))}
 //                 </div>
 //             </div>
-           
+
 //        {/* Modal */}
 //        <Modal show={show} onHide={handleClose} centered >
 //                 <Modal.Header closeButton>
@@ -160,104 +158,120 @@
 
 // export default Courses;
 
-
 // ########################################################################################################################################################################
 
-import React, { useState, useEffect } from 'react';
-import './Courses.css';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
-import { Card, Modal, Button } from 'react-bootstrap';
+import React, { useState, useEffect } from "react";
+import "./Courses.css";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { Card, Modal, Button } from "react-bootstrap";
 import { IoSearch } from "react-icons/io5";
-import ArtCourseImg from '../../utils/images/art-course.jpg';
-import CourseCard from './CourseCard';
-
+import ArtCourseImg from "../../utils/images/art-course.jpg";
+import CourseCard from "./CourseCard";
 
 const Courses = () => {
-    const [allCourses, setCourses] = useState([]);
-    const [show, setShow] = useState(false);
-    const [selectedCourse, setSelectedCourse] = useState(null);
-    const [searchQuery, setSearchQuery] = useState('');
-    const [colleges, setColleges] = useState([]);
+  const [allCourses, setCourses] = useState([]);
+  const [show, setShow] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [colleges, setColleges] = useState([]);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get("http://localhost:5000/api/all-courses");
-                if (Array.isArray(response?.data.data)) {
-                    setCourses(response?.data.data);
-                } else {
-                    console.error("Response data is not an array:", response?.data.data);
-                }
-            } catch (error) {
-                console.error("Courses fetch error ", error);
-            }
-        };
-        fetchData();
-    }, []);
-
-    const handleShow = async (course) => {
-        setSelectedCourse(course);
-        setShow(true);
-        try {
-            const response = await axios.get(`http://localhost:5000/api/all-courses/${course._id}`);
-            setColleges(response?.data?.data || []);
-        } catch (error) {
-            console.error("Failed to fetch colleges", error);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:5000/api/all-courses"
+        );
+        if (Array.isArray(response?.data.data)) {
+          setCourses(response?.data.data);
+        } else {
+          console.error("Response data is not an array:", response?.data.data);
         }
+      } catch (error) {
+        console.error("Courses fetch error ", error);
+      }
     };
+    fetchData();
+  }, []);
 
-    const handleClose = () => {
-        setShow(false);
-        setColleges([]);
-    };
+  const handleShow = async (course) => {
+    setSelectedCourse(course);
+    setShow(true);
+    try {
+      const response = await axios.get(
+        `http://localhost:5000/api/all-courses/${course._id}`
+      );
+      setColleges(response?.data?.data || []);
+    } catch (error) {
+      console.error("Failed to fetch colleges", error);
+    }
+  };
 
-    const filteredCourses = allCourses.filter((course) =>
-        course.courseTitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        course.description.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+  const handleClose = () => {
+    setShow(false);
+    setColleges([]);
+  };
 
-    return (
-        <div className='courses-page'>
-            <header className='height-75'>
-                <div className="container h-100 d-flex flex-column align-items-center justify-content-center text-light">
-                    <h1 className='text-center fw-semibold'>Our Courses</h1>
-                    <p className='text-center w-75 mb-5'>Here, you can easily access comprehensive information about all the academic programs offered at Punjab University. Whether you're looking to explore new subjects, track your current courses, or find detailed course outlines, this portal is your gateway to academic excellence.</p>
-                    <Link to="https://pu.edu.pk/page/show/course_outline.html">
-                        <button type='button' className='list btn btn-purple btn-lg mx-0 mx-sm-2'>List of PU Courses</button>
-                    </Link>
-                </div>
-            </header>
+  const filteredCourses = allCourses.filter(
+    (course) =>
+      course.courseTitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      course.description.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
-            <div className="search-bar-container my-4">
-                <div className="input-group">
-                    <input
-                        type="text"
-                        className="form-control search-bar"
-                        placeholder="Search for courses..."
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                        value={searchQuery}
-                    />
-                    <span className="input-group-text" id="search-icon">
-                        <IoSearch />
-                    </span>
-                </div>
-            </div>
+  return (
+    <div className="courses-page">
+      <header className="height-75">
+        <div className="container h-100 d-flex flex-column align-items-center justify-content-center text-light">
+          <h1 className="text-center fw-semibold">Our Courses</h1>
+          <p className="text-center w-75 mb-5">
+            Here, you can easily access comprehensive information about all the
+            academic programs offered at Punjab University. Whether you're
+            looking to explore new subjects, track your current courses, or find
+            detailed course outlines, this portal is your gateway to academic
+            excellence.
+          </p>
+          <Link to="https://pu.edu.pk/page/show/course_outline.html">
+            <button
+              type="button"
+              className="list btn btn-purple btn-lg mx-0 mx-sm-2"
+            >
+              List of PU Courses
+            </button>
+          </Link>
+        </div>
+      </header>
 
-            {filteredCourses.length === 0 && (
-                <p className="no-results-message">No courses found matching your search.</p>
-            )}
+      <div className="search-bar-container my-4">
+        <div className="input-group">
+          <input
+            type="text"
+            className="form-control search-bar"
+            placeholder="Search for courses..."
+            onChange={(e) => setSearchQuery(e.target.value)}
+            value={searchQuery}
+          />
+          <span className="input-group-text" id="search-icon">
+            <IoSearch />
+          </span>
+        </div>
+      </div>
 
-            <div className="container py-5">
-                <div className="row g-4">
-                    {allCourses.map((course, index) => (
-                        <CourseCard course={course} key={index}/>
-                    ))}
-                </div>
-            </div>
+      {filteredCourses.length === 0 && (
+        <p className="no-results-message">
+          No courses found matching your search.
+        </p>
+      )}
 
-            {/* Modal */}
-            {/* <Modal show={show} onHide={handleClose} centered>
+      <div className="container py-5">
+        <div className="row g-4">
+          {allCourses.map((course, index) => (
+            <CourseCard course={course} key={index} />
+          ))}
+        </div>
+      </div>
+
+      {/* Modal */}
+      {/* <Modal show={show} onHide={handleClose} centered>
                 <Modal.Header closeButton>
                     <Modal.Title>{selectedCourse ? selectedCourse.courseTitle : ''}</Modal.Title>
                 </Modal.Header>
@@ -277,10 +291,8 @@ const Courses = () => {
                     <Button variant="secondary" onClick={handleClose}>Close</Button>
                 </Modal.Footer>
             </Modal> */}
-        </div>
-    );
-}
+    </div>
+  );
+};
 
 export default Courses;
-
-

@@ -440,3 +440,13 @@ margin-right:20px;
 .profile-card button:last-child:hover {
   background-color:  rgb(103, 5, 88) !important;
 }
+
+/* Media Query Here */
+@media(max-width:768px){
+  .toggle-btn-for-mobile{
+    padding:8px;
+  }
+  .toggle-btn-for-mobile .navbar-toggler-icon{
+    font-size:16px;
+  }
+}

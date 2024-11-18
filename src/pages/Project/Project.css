@@ -178,13 +178,13 @@ popup-content{
   justify-content: end;
   align-items: center;
   width: 30%;
+  padding:10px;
   margin-left: auto;
 }
 @media(max-width:768px){
   .search-bar-container{
     margin-left:none;
     width:100%;
-    padding:10px;
   }
 }
 .search-bar {

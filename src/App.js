@@ -102,7 +102,7 @@ function App() {
               <span className="mx-2 text-light">PU-SIP</span>
             </Link>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" className="bg-light" />
+          <Navbar.Toggle aria-controls="basic-navbar-nav" className="bg-light toggle-btn-for-mobile" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto justify-content-end w-100">
               <Nav.Link as={Link} to="/" className="text-uppercase">Home</Nav.Link>

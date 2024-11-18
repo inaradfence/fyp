@@ -51,3 +51,15 @@
 .modal-footer .btn-secondary:hover {
     background-color: rgb(103, 5, 88) !important;
 }
+
+
+@media(max-width:768px){
+    /* Modal Dialog Width */
+.modal-dialog {
+    /* position: relative; */
+    max-width: 100% !important; /* Set to a specific pixel width */
+    width: 100% !important;
+    margin:0;
+}
+
+}

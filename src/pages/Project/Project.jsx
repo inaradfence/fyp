@@ -58,6 +58,14 @@ function Project() {
       return;
     }
 
+    const user = localStorage.getItem("user");
+    const jsonUser = user ? JSON.parse(user) : null;
+    if (!jsonUser || !jsonUser.id) {
+      setError(
+        "user not found. Please login again"
+      );
+      return;
+    }
     console.log("hgyhjjkjk");
 
     try {
@@ -66,7 +74,7 @@ function Project() {
         description: formData.description,
         url: formData.url,
         file: formData.file,
-        user: currentUser?.id,
+        user: jsonUser?.id,
       });
 
       console.log("hgyhjjkjk");
